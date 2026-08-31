@@ -1,0 +1,903 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="แผนแนวคิดการจัดตั้งศูนย์นวัตกรรมด้านปัญญาประดิษฐ์และหุ่นยนต์ มหาวิทยาลัยแม่ฟ้าหลวง (MFU-ARIC) ระยะที่ 1-2">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%237A1C1C'/%3E%3C/svg%3E">
+<style>
+html{color-scheme:light}
+body{margin:0;font:14px system-ui,sans-serif;background:#FAF6EE}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<title>ARIC Concept Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prompt:wght@200;300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+</head>
+<body>
+<style>
+:root{
+  --ink:#1C1610; --ink2:#4A3F33; --mute:#7C6C5C;
+  --red:#7A1C1C; --red-d:#500000; --red-m:#93433F;
+  --cream:#FAF6EE; --cream2:#F3ECE0; --hi:#FFF0D2;
+  --rule:#D6C9B3; --rule2:#EBE2D1;
+  --gold:#A87A2C; --gold2:#B8762E; --tan:#C9A87A;
+  --green:#5F7A4A; --blue:#2E5F7A;
+  --sans:'Prompt',"Leelawadee UI","Tahoma",sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,"Consolas",monospace;
+}
+*{box-sizing:border-box}
+body{background:#241E18;color:var(--ink);font-family:var(--sans);margin:0}
+
+/* ---------- deck shell ---------- */
+#viewport{position:relative;width:100%;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+#stage{width:1280px;height:720px;flex:0 0 auto;transform-origin:center center;position:relative}
+.s{position:absolute;inset:0;background:var(--cream);padding:38px 52px 32px;display:none;flex-direction:column;overflow:hidden}
+.s.on{display:flex}
+.s::after{content:'';position:absolute;left:0;right:0;bottom:0;height:6px;background:linear-gradient(90deg,var(--red) 0%,var(--red) 62%,var(--gold) 62%,var(--gold) 100%)}
+.pg{position:absolute;right:22px;bottom:15px;font-family:var(--mono);font-size:12px;color:var(--mute);letter-spacing:.08em}
+
+/* ---------- nav ---------- */
+#bar{position:fixed;left:50%;bottom:13px;transform:translateX(-50%);display:flex;align-items:center;gap:14px;
+  background:rgba(28,22,16,.82);border:1px solid rgba(214,201,179,.25);border-radius:999px;padding:7px 14px;z-index:50;backdrop-filter:blur(6px)}
+#bar button{background:none;border:0;color:var(--cream2);font-family:var(--mono);font-size:14px;cursor:pointer;padding:3px 8px;border-radius:6px;line-height:1}
+#bar button:hover{background:rgba(250,246,238,.13)}
+#bar button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+#dots{display:flex;gap:5px}
+#dots i{width:7px;height:7px;border-radius:50%;background:rgba(250,246,238,.3);cursor:pointer;transition:background .15s,transform .15s}
+#dots i.on{background:var(--gold);transform:scale(1.3)}
+#cnt{font-family:var(--mono);font-size:12px;color:var(--tan);letter-spacing:.06em;min-width:46px;text-align:center}
+
+/* ---------- grid overview ---------- */
+#grid{display:none;padding:32px;gap:20px;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));max-width:1500px;margin:0 auto}
+body.overview #viewport{display:none}
+body.overview #grid{display:grid}
+.thumb{position:relative;aspect-ratio:16/9;border-radius:4px;overflow:hidden;cursor:pointer;border:1px solid rgba(214,201,179,.22);background:var(--cream)}
+.thumb:hover{border-color:var(--gold)}
+.thumb .cap{position:absolute;left:0;right:0;bottom:0;background:rgba(28,22,16,.86);color:var(--cream2);font-size:12px;padding:6px 9px;display:flex;gap:8px}
+.thumb .cap b{font-family:var(--mono);color:var(--gold);font-weight:500}
+.thumb .inner{position:absolute;top:0;left:0;width:1280px;height:720px;transform-origin:top left;pointer-events:none}
+
+/* ---------- typography ---------- */
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500}
+h1.t{font-size:34px;font-weight:600;margin:5px 0 0;letter-spacing:-.01em;line-height:1.16;text-wrap:balance}
+.sub{font-size:16px;color:var(--mute);font-weight:300;margin-top:4px;line-height:1.4}
+.head{border-bottom:1px solid var(--rule);padding-bottom:10px;margin-bottom:14px;flex:0 0 auto}
+.body{flex:1 1 auto;min-height:0;display:flex;flex-direction:column}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.lbl{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);font-weight:500}
+.red{color:var(--red)}
+b{font-weight:600}
+.note{font-size:12.5px;color:var(--mute);font-weight:300;line-height:1.5}
+.txt{font-size:13.5px;font-weight:300;color:var(--ink2);line-height:1.5}
+
+/* ---------- primitives ---------- */
+.card{background:#fff;border:1px solid var(--rule2);border-radius:3px;padding:12px 14px}
+.card.k{background:var(--cream2);border-color:var(--rule)}
+.card.r{background:var(--red);border-color:var(--red-d);color:var(--hi)}
+.card.r .lbl,.card.r .note{color:rgba(255,240,210,.75)}
+.card.g{background:var(--hi);border-color:var(--gold)}
+.row{display:flex;gap:13px}
+.body.row{flex-direction:row}   /* .body sets column; a body that IS the row must override it */
+.grow{flex:1 1 0;min-width:0}
+table.t{width:100%;border-collapse:collapse;font-size:13.5px}
+table.t th{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);
+  font-weight:500;text-align:left;padding:0 0 5px;border-bottom:1px solid var(--rule)}
+table.t td{padding:4.5px 0;border-bottom:1px solid var(--rule2);font-weight:300}
+table.t td.n{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;font-weight:400}
+table.t tr.sum td{border-bottom:0;border-top:1.5px solid var(--ink2);font-weight:600;padding-top:6px}
+table.t tr.sum td.n{font-weight:600}
+table.t .sm{color:var(--mute);font-size:11.5px}
+.big{font-family:var(--mono);font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1}
+.chip{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;
+  padding:2.5px 7px;border-radius:2px;background:var(--hi);color:var(--gold2);font-weight:500;border:1px solid rgba(168,122,44,.3);white-space:nowrap}
+.chip.r{background:rgba(122,28,28,.09);color:var(--red);border-color:rgba(122,28,28,.25)}
+.sw{display:inline-block;width:11px;height:11px;flex:0 0 auto}
+</style>
+
+<div id="viewport"><div id="stage">
+
+<!-- ═══════════ 1 · TITLE ═══════════ -->
+<section class="s on" data-cap="ปก · Concept Plan">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start">
+    <div>
+      <div style="font-size:16px;font-weight:500">มหาวิทยาลัยแม่ฟ้าหลวง</div>
+      <div class="lbl" style="margin-top:2px">Mae Fah Luang University</div>
+    </div>
+    <div style="text-align:right">
+      <div style="font-size:16px;font-weight:500">สำนักวิชาเทคโนโลยีดิจิทัลประยุกต์</div>
+      <div class="lbl" style="margin-top:2px">School of Applied Digital Technology</div>
+    </div>
+  </div>
+
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;margin-top:-10px">
+    <div style="display:flex;align-items:baseline;gap:18px">
+      <div class="big red" style="font-size:112px">ARIC</div>
+      <div style="padding-bottom:14px">
+        <div class="lbl" style="font-size:12px;letter-spacing:.18em;line-height:1.5">AI &amp; Robotics<br>Innovation Center</div>
+      </div>
+    </div>
+    <div style="height:2px;background:var(--red);width:560px;margin:14px 0 20px"></div>
+    <div style="font-size:33px;font-weight:500;line-height:1.28">แผนแนวคิดการจัดตั้งและดำเนินงาน<br>
+      <span class="red">ระยะที่ ๑ – ระยะที่ ๒</span></div>
+    <div class="sub" style="font-size:18px;max-width:700px;margin-top:14px;line-height:1.5">
+      กลไกหลัก — <b style="color:var(--ink)">แฮกกาธอนคัดทีม → รอบ MVP หาความต้องการตลาด → ออกบูธเพื่อโปรโมทและขาย</b>
+      หมุนซ้ำปีละ ๓ รอบ
+    </div>
+  </div>
+
+  <div style="display:flex;border-top:1px solid var(--rule);padding-top:16px">
+    <div class="grow"><div class="lbl">ระยะที่ ๑ · ๒ ปี</div><div class="big" style="font-size:29px;margin-top:6px">฿6.06<span style="font-size:15px;font-weight:400"> ล้าน</span></div></div>
+    <div class="grow" style="border-left:1px solid var(--rule);padding-left:22px"><div class="lbl">ระยะที่ ๒ · ต่อปี</div><div class="big" style="font-size:29px;margin-top:6px">฿6.81<span style="font-size:15px;font-weight:400"> ล้าน</span></div></div>
+    <div class="grow" style="border-left:1px solid var(--rule);padding-left:22px"><div class="lbl">ผลผลิต ๒ ปีแรก</div><div class="big" style="font-size:29px;margin-top:6px">18<span style="font-size:15px;font-weight:400"> MVP</span></div></div>
+    <div class="grow" style="border-left:1px solid var(--rule);padding-left:22px"><div class="lbl">หุ้นของมูลนิธิ</div><div class="big red" style="font-size:29px;margin-top:6px">15<span style="font-size:15px;font-weight:400">%</span></div></div>
+    <div class="grow" style="border-left:1px solid var(--rule);padding-left:22px"><div class="lbl">โดเมนเป้าหมาย</div><div style="font-size:15px;font-weight:500;margin-top:8px;line-height:1.35">สุขภาพ &amp; สังคมสูงวัย<br><span style="color:var(--mute);font-weight:300">Smart City</span></div></div>
+  </div>
+  <div class="pg mono">01</div>
+</section>
+
+<!-- ═══════════ 2 · THE ENGINE ═══════════ -->
+<section class="s" data-cap="แนวคิดหลัก · The Engine">
+  <div class="head">
+    <div class="eyebrow">The Engine</div>
+    <h1 class="t">กลไกสามจังหวะที่หมุนซ้ำปีละ ๓ รอบ</h1>
+    <div class="sub">วัดผลที่ <b style="color:var(--ink)">มีคนใช้จริงกี่ตัว และมีคนจ่ายเงินกี่ตัว</b> — ทุกรอบจึงต้องจบที่ลูกค้า ไม่ใช่จบที่โค้ด</div>
+  </div>
+
+  <div class="body">
+    <div style="display:flex;align-items:stretch;margin-bottom:14px">
+      <div style="flex:1;background:var(--cream2);border:1px solid var(--rule);border-right:0;padding:15px 17px">
+        <span class="chip r">Stage 01 · Intake</span>
+        <div style="font-size:25px;font-weight:600;margin-top:9px">แฮกกาธอน</div>
+        <div class="lbl" style="margin-top:1px">Hackathon</div>
+        <div class="txt" style="margin-top:9px">เปิดรับทีมและโจทย์จากภายนอก คัดทีมที่มีศักยภาพ <b style="color:var(--ink)">๓ ทีม</b> เข้าสู่รอบถัดไป</div>
+        <div style="margin-top:11px;display:flex;gap:20px;border-top:1px solid var(--rule);padding-top:9px">
+          <div><div class="lbl">ความถี่</div><div class="mono" style="font-size:16px;font-weight:600">ทุก 4 เดือน</div></div>
+          <div><div class="lbl">งบ/ครั้ง</div><div class="mono" style="font-size:16px;font-weight:600">฿100,000</div></div>
+        </div>
+      </div>
+      <div style="width:28px;z-index:2;display:flex;align-items:center;justify-content:center">
+        <svg width="28" height="28" viewBox="0 0 26 26"><circle cx="13" cy="13" r="12" fill="#7A1C1C"/><path d="M9.5 7l6 6-6 6" fill="none" stroke="#FFF0D2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div style="flex:1.12;background:var(--red);border:1px solid var(--red-d);padding:15px 17px;color:var(--hi)">
+        <span class="chip" style="background:rgba(255,240,210,.16);color:var(--hi);border-color:rgba(255,240,210,.3)">Stage 02 · Build</span>
+        <div style="font-size:25px;font-weight:600;margin-top:9px">รอบ MVP</div>
+        <div class="lbl" style="margin-top:1px;color:rgba(255,240,210,.65)">Product-Market Fit</div>
+        <div class="txt" style="margin-top:9px;color:rgba(255,240,210,.92)">๓ ทีมที่ชนะได้ทุนและที่ปรึกษาอุตสาหกรรม สร้างผลิตภัณฑ์ที่ใช้งานได้จริงและทดสอบกับผู้ใช้</div>
+        <div style="margin-top:11px;display:flex;gap:20px;border-top:1px solid rgba(255,240,210,.25);padding-top:9px">
+          <div><div class="lbl" style="color:rgba(255,240,210,.65)">ต่อทีม</div><div class="mono" style="font-size:16px;font-weight:600">฿100,000</div></div>
+          <div><div class="lbl" style="color:rgba(255,240,210,.65)">ต่อรอบ</div><div class="mono" style="font-size:16px;font-weight:600">฿300,000</div></div>
+        </div>
+      </div>
+      <div style="width:28px;z-index:2;display:flex;align-items:center;justify-content:center">
+        <svg width="28" height="28" viewBox="0 0 26 26"><circle cx="13" cy="13" r="12" fill="#7A1C1C"/><path d="M9.5 7l6 6-6 6" fill="none" stroke="#FFF0D2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div style="flex:1;background:var(--hi);border:1px solid var(--gold);border-left:0;padding:15px 17px">
+        <span class="chip">Stage 03 · Sell</span>
+        <div style="font-size:25px;font-weight:600;margin-top:9px">ออกบูธ</div>
+        <div class="lbl" style="margin-top:1px">Exhibition</div>
+        <div class="txt" style="margin-top:9px">นำ MVP ไปวางต่อหน้าลูกค้า พันธมิตร และนักลงทุนในงานระดับประเทศ — <b style="color:var(--ink)">เป็นขั้นปิดของทุกรอบ</b></div>
+        <div style="margin-top:11px;display:flex;gap:20px;border-top:1px solid var(--gold);padding-top:9px">
+          <div><div class="lbl">ต่อรอบ</div><div class="mono" style="font-size:16px;font-weight:600">1 งาน</div></div>
+          <div><div class="lbl">งบ/งาน</div><div class="mono" style="font-size:16px;font-weight:600">฿94,500</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:13px">
+      <svg width="44" height="24" viewBox="0 0 42 26"><path d="M40 4H9a6 6 0 000 12h0" fill="none" stroke="#A87A2C" stroke-width="1.6" stroke-dasharray="4 3"/><path d="M13 12l-4 4 4 4" fill="none" stroke="#A87A2C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="txt"><b style="color:var(--gold2)">วงจรป้อนกลับ</b> — ลูกค้าและพันธมิตรที่พบในงานออกบูธ กลายเป็นโจทย์และผู้สนับสนุนของแฮกกาธอนรอบถัดไป</div>
+    </div>
+
+    <div class="row" style="flex:1;align-items:stretch">
+      <div class="card k grow" style="display:flex;flex-direction:column;justify-content:center">
+        <div class="lbl">ผลผลิตต่อปี</div>
+        <div style="display:flex;align-items:baseline;gap:11px;margin-top:5px"><div class="big red" style="font-size:42px">9</div><div style="font-size:14px;font-weight:300;line-height:1.35">ทีมได้รับการสนับสนุน<br>จนถึง MVP ที่ใช้งานได้</div></div>
+      </div>
+      <div class="card k grow" style="display:flex;flex-direction:column;justify-content:center">
+        <div class="lbl">ต้นทุนโครงการต่อปี</div>
+        <div style="display:flex;align-items:baseline;gap:11px;margin-top:5px"><div class="big" style="font-size:42px">฿1.48<span style="font-size:18px">M</span></div><div style="font-size:14px;font-weight:300;line-height:1.35">แฮกกาธอน + รอบ MVP<br>+ ออกบูธ ทุกรอบรวมกัน</div></div>
+      </div>
+      <div class="card grow" style="border-color:var(--gold);display:flex;flex-direction:column;justify-content:center">
+        <div class="lbl">ทำไมงบต่อทีมแค่ ฿100,000 ถึงพอ</div>
+        <div class="txt" style="margin-top:6px">ทุกทีมได้ <b style="color:var(--ink)">AI coding agent</b> และ <b style="color:var(--ink)">เครื่อง DGX</b> จากส่วนกลาง ทีมเล็กจึงส่งงานได้เท่าทีมใหญ่ในอดีต</div>
+      </div>
+    </div>
+  </div>
+  <div class="pg mono">02</div>
+</section>
+
+<!-- ═══════════ 3 · ONE CYCLE ═══════════ -->
+<section class="s" data-cap="หนึ่งรอบ · Anatomy of a Cycle">
+  <div class="head">
+    <div class="eyebrow">Anatomy of one cycle · 4 months</div>
+    <h1 class="t">ภายในหนึ่งรอบ — เงินไปอยู่ที่ไหน และจบอย่างไร</h1>
+  </div>
+
+  <div class="body">
+    <div style="display:flex;gap:3px;margin-bottom:15px">
+      <div style="flex:1;background:var(--red);color:var(--hi);padding:10px 13px;border-radius:2px 0 0 2px">
+        <div class="mono" style="font-size:11px;letter-spacing:.13em;opacity:.72">เดือน 1</div>
+        <div style="font-weight:500;font-size:14.5px;margin-top:3px">แฮกกาธอน · คัด 3 ทีม</div></div>
+      <div style="flex:2;background:var(--red-m);color:var(--hi);padding:10px 13px">
+        <div class="mono" style="font-size:11px;letter-spacing:.13em;opacity:.72">เดือน 2–3</div>
+        <div style="font-weight:500;font-size:14.5px;margin-top:3px">สร้าง MVP · ที่ปรึกษาประกบทีม · ทดสอบกับผู้ใช้จริง</div></div>
+      <div style="flex:1;background:var(--gold);color:#2A1E08;padding:10px 13px;border-radius:0 2px 2px 0">
+        <div class="mono" style="font-size:11px;letter-spacing:.13em;opacity:.75">เดือน 4</div>
+        <div style="font-weight:500;font-size:14.5px;margin-top:3px">ออกบูธ · ปิดรอบ</div></div>
+    </div>
+
+    <div class="row" style="flex:1;align-items:stretch">
+      <div class="card grow" style="flex:1">
+        <div class="eyebrow" style="color:var(--red)">Per team · ฿100,000</div>
+        <div style="font-size:18px;font-weight:600;margin:4px 0 13px">งบหนึ่งทีมในรอบ MVP</div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:14px"><span>ที่ปรึกษาอุตสาหกรรม <span class="sm" style="color:var(--mute);font-size:12px">2 ด. × ฿25,000</span></span><span class="mono" style="font-weight:500">50,000</span></div>
+            <div style="height:9px;background:var(--rule2);margin-top:5px"><div style="width:50%;height:100%;background:var(--red)"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:14px"><span>นักพัฒนา part-time</span><span class="mono" style="font-weight:500">40,000</span></div>
+            <div style="height:9px;background:var(--rule2);margin-top:5px"><div style="width:40%;height:100%;background:var(--gold)"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:14px"><span>วัสดุ · hosting · ค่าเดโม</span><span class="mono" style="font-weight:500">10,000</span></div>
+            <div style="height:9px;background:var(--rule2);margin-top:5px"><div style="width:10%;height:100%;background:var(--ink2)"></div></div>
+          </div>
+        </div>
+        <div style="margin-top:14px;padding-top:10px;border-top:1.5px solid var(--ink2);display:flex;justify-content:space-between;font-size:15px;font-weight:600">
+          <span>รวมต่อทีม</span><span class="mono">฿100,000</span></div>
+        <div class="note" style="margin-top:10px">๓ ทีม × ฿100,000 = <b style="color:var(--ink)">฿300,000 ต่อรอบ</b> · ปีละ ๓ รอบ = ฿900,000</div>
+      </div>
+
+      <div class="card k grow" style="flex:1.32">
+        <div class="eyebrow" style="color:var(--gold2)">Showcase · 3 events / year</div>
+        <div style="font-size:18px;font-weight:600;margin:4px 0 11px">งานที่เลือกออกบูธ</div>
+        <table class="t">
+          <tr><th style="width:46%">งาน</th><th>ผู้จัด</th><th>ช่วง</th><th style="text-align:right">เหตุผล</th></tr>
+          <tr><td><b>SITE</b> <span class="sm">Startup × Innovation Expo</span></td><td class="mono" style="font-size:12.5px">NIA (อว.)</td><td class="mono" style="font-size:12.5px">มิ.ย.</td><td style="text-align:right;font-size:12.5px">เวทีสตาร์ทอัพชาติ</td></tr>
+          <tr><td><b>Techsauce</b> <span class="sm">Global Summit</span></td><td class="mono" style="font-size:12.5px">Techsauce</td><td class="mono" style="font-size:12.5px">ส.ค.</td><td style="text-align:right;font-size:12.5px">นักลงทุน + สื่อ</td></tr>
+          <tr><td><b>DigiTech ASEAN</b> <span class="sm">AI Connect</span></td><td class="mono" style="font-size:12.5px">MDES + อว.</td><td class="mono" style="font-size:12.5px">พ.ย.</td><td style="text-align:right;font-size:12.5px">ตรงกับผู้ให้ทุน</td></tr>
+        </table>
+        <div style="display:flex;gap:10px;margin-top:14px">
+          <div style="flex:1;border-left:2px solid var(--gold);padding-left:9px"><div class="lbl">บูธ 6 ตร.ม.</div><div class="mono" style="font-size:15px;font-weight:600">42,000</div></div>
+          <div style="flex:1;border-left:2px solid var(--rule);padding-left:9px"><div class="lbl">ตกแต่ง</div><div class="mono" style="font-size:15px;font-weight:600">21,000</div></div>
+          <div style="flex:1;border-left:2px solid var(--rule);padding-left:9px"><div class="lbl">เดินทาง 3 คน</div><div class="mono" style="font-size:15px;font-weight:600">21,000</div></div>
+          <div style="flex:1;border-left:2px solid var(--rule);padding-left:9px"><div class="lbl">สื่อ · ขนส่ง</div><div class="mono" style="font-size:15px;font-weight:600">10,500</div></div>
+        </div>
+        <div class="note" style="margin-top:11px">รวม <b style="color:var(--ink)">฿94,500 / งาน</b> — ปรับลด 30% โดยลดขนาดบูธ ใช้โครงสร้างเดิมซ้ำทั้งสามงาน และลดทีมเหลือ 3 คน &nbsp;<span class="chip r">ยังไม่มีราคาประกาศ</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="pg mono">03</div>
+</section>
+
+<!-- ═══════════ 4 · ORG CHART ═══════════ -->
+<section class="s" data-cap="โครงสร้างองค์กร · Organisation">
+  <div class="head">
+    <div class="eyebrow">Organisation</div>
+    <h1 class="t">โครงสร้างการบริหารและสายบังคับบัญชา</h1>
+  </div>
+
+  <div class="body row" style="gap:18px">
+    <div style="flex:1.6;display:flex;flex-direction:column">
+      <div class="card k" style="text-align:center;padding:9px">
+        <div class="lbl">ระยะที่ ๑ · หน่วยงานต้นสังกัด</div>
+        <div style="font-size:16px;font-weight:600;margin-top:1px">มหาวิทยาลัยแม่ฟ้าหลวง <span style="font-weight:300;color:var(--mute)">/ สำนักวิชา ADT</span></div>
+        <div style="font-size:12.5px;color:var(--gold2);margin-top:1px">ระยะที่ ๒ → มูลนิธิมหาวิทยาลัยแม่ฟ้าหลวง (holding company)</div>
+      </div>
+      <svg width="100%" height="14" viewBox="0 0 100 14" preserveAspectRatio="none"><line x1="50" y1="0" x2="50" y2="14" stroke="#C9A87A" stroke-width=".4"/></svg>
+      <div style="display:flex;align-items:center">
+        <div style="flex:1"></div>
+        <div class="card" style="flex:2.1;text-align:center;padding:9px;border-color:var(--red);border-width:1.5px">
+          <div class="lbl" style="color:var(--red)">Executive Board</div>
+          <div style="font-size:17px;font-weight:600;margin-top:1px">คณะกรรมการบริหารศูนย์</div>
+          <div class="mono red" style="font-size:12.5px;font-weight:600">5–7 คน · ภายใน + ภายนอก</div>
+        </div>
+        <div style="flex:1;display:flex;align-items:center">
+          <svg width="100%" height="10" viewBox="0 0 100 10" preserveAspectRatio="none"><line x1="0" y1="5" x2="100" y2="5" stroke="#C9A87A" stroke-width=".9" stroke-dasharray="3 2"/></svg>
+          <div class="lbl" style="white-space:nowrap;padding-left:6px;line-height:1.35">กำกับ<br>นโยบาย</div>
+        </div>
+      </div>
+      <svg width="100%" height="14" viewBox="0 0 100 14" preserveAspectRatio="none"><line x1="50" y1="0" x2="50" y2="14" stroke="#C9A87A" stroke-width=".4"/></svg>
+      <div style="display:flex">
+        <div style="flex:1"></div>
+        <div class="card r" style="flex:2.1;text-align:center;padding:9px">
+          <div class="lbl">Director</div>
+          <div style="font-size:18px;font-weight:600;margin-top:1px">ผู้บริหารศูนย์</div>
+          <div style="font-size:12.5px;color:rgba(255,240,210,.82)">ระยะที่ ๑ — รักษาการ (ไม่ตั้งงบ) · ระยะที่ ๒ — เต็มเวลา</div>
+        </div>
+        <div style="flex:1"></div>
+      </div>
+      <svg width="100%" height="18" viewBox="0 0 100 18" preserveAspectRatio="none">
+        <line x1="50" y1="0" x2="50" y2="8" stroke="#C9A87A" stroke-width=".4"/>
+        <line x1="27" y1="8" x2="73" y2="8" stroke="#C9A87A" stroke-width=".4"/>
+        <line x1="27" y1="8" x2="27" y2="18" stroke="#C9A87A" stroke-width=".4"/>
+        <line x1="73" y1="8" x2="73" y2="18" stroke="#C9A87A" stroke-width=".4"/>
+      </svg>
+      <div style="display:flex;gap:13px">
+        <div class="card" style="flex:1;text-align:center;padding:9px;border-color:var(--gold);border-width:1.5px">
+          <div class="lbl" style="color:var(--gold2)">Innovation Manager</div>
+          <div style="font-size:15px;font-weight:600;margin-top:1px">เจ้าหน้าที่บริหาร <span style="font-weight:300">(Project Manager)</span></div>
+          <div style="font-size:12px;color:var(--mute);margin-top:1px">คุมรอบแฮกกาธอน–MVP–ออกบูธ ประกบทุกทีม</div>
+        </div>
+        <div class="card" style="flex:1;text-align:center;padding:9px">
+          <div class="lbl">Finance &amp; Procurement</div>
+          <div style="font-size:15px;font-weight:600;margin-top:1px">เจ้าหน้าที่บริหาร <span style="font-weight:300">(บัญชี–จัดซื้อ)</span></div>
+          <div style="font-size:12px;color:var(--mute);margin-top:1px">ยืมตัวจากหน่วยงานเดิม ไม่เพิ่มอัตรากำลัง</div>
+        </div>
+      </div>
+      <svg width="100%" height="18" viewBox="0 0 100 18" preserveAspectRatio="none">
+        <line x1="25" y1="0" x2="25" y2="8" stroke="#C9A87A" stroke-width=".4"/>
+        <line x1="16" y1="8" x2="84" y2="8" stroke="#C9A87A" stroke-width=".4"/>
+        <line x1="16" y1="8" x2="16" y2="18" stroke="#C9A87A" stroke-width=".4"/>
+        <line x1="50" y1="8" x2="50" y2="18" stroke="#C9A87A" stroke-width=".4"/>
+        <line x1="84" y1="8" x2="84" y2="18" stroke="#C9A87A" stroke-width=".4"/>
+      </svg>
+      <div style="display:flex;gap:11px;flex:1">
+        <div class="card k" style="flex:1;padding:9px 10px"><div class="lbl" style="color:var(--red)">Product Team 01</div><div style="font-size:14.5px;font-weight:600;margin-top:1px">ทีมผลิตภัณฑ์</div><div style="font-size:12px;color:var(--mute)">founder · tech lead · dev</div><div style="margin-top:6px;border-top:1px dashed var(--tan);padding-top:5px;font-size:12.5px;color:var(--gold2);font-weight:500">+ ที่ปรึกษาอุตสาหกรรม <span class="mono" style="color:var(--mute);font-weight:400">1</span></div></div>
+        <div class="card k" style="flex:1;padding:9px 10px"><div class="lbl" style="color:var(--red)">Product Team 02</div><div style="font-size:14.5px;font-weight:600;margin-top:1px">ทีมผลิตภัณฑ์</div><div style="font-size:12px;color:var(--mute)">founder · tech lead · dev</div><div style="margin-top:6px;border-top:1px dashed var(--tan);padding-top:5px;font-size:12.5px;color:var(--gold2);font-weight:500">+ ที่ปรึกษาอุตสาหกรรม <span class="mono" style="color:var(--mute);font-weight:400">1</span></div></div>
+        <div class="card k" style="flex:1;padding:9px 10px"><div class="lbl" style="color:var(--red)">Product Team 03</div><div style="font-size:14.5px;font-weight:600;margin-top:1px">ทีมผลิตภัณฑ์</div><div style="font-size:12px;color:var(--mute)">founder · tech lead · dev</div><div style="margin-top:6px;border-top:1px dashed var(--tan);padding-top:5px;font-size:12.5px;color:var(--gold2);font-weight:500">+ ที่ปรึกษาอุตสาหกรรม <span class="mono" style="color:var(--mute);font-weight:400">1</span></div></div>
+      </div>
+      <div class="note" style="margin-top:8px">๓ ทีมต่อรอบ × ๓ รอบต่อปี = <b style="color:var(--ink)">๙ ทีมต่อปี</b> — ทีมและที่ปรึกษาเป็นสัญญาราย ๒ เดือนตามรอบ ไม่ใช่อัตรากำลังประจำ</div>
+    </div>
+
+    <div style="flex:1;display:flex;flex-direction:column;gap:11px">
+      <div class="card" style="border-color:var(--red);border-width:1.5px;flex:1">
+        <div class="eyebrow" style="color:var(--red)">Executive Board · 5–7</div>
+        <div style="font-size:17px;font-weight:600;margin:3px 0 2px">องค์ประกอบคณะกรรมการ</div>
+        <div class="note" style="margin-bottom:10px">กำกับนโยบาย · อนุมัติแผนและงบรายรอบ · <b style="color:var(--ink)">คัดเลือกทีมที่ผ่านแฮกกาธอน</b> · รับรองเงื่อนไขหุ้นและ IP</div>
+
+        <div class="lbl" style="color:var(--red)">กรรมการภายใน · 3–4 คน</div>
+        <div style="font-size:13.5px;font-weight:300;line-height:1.75;margin:4px 0 11px;border-left:2px solid var(--red);padding-left:10px">
+          ผู้บริหารมหาวิทยาลัยที่กำกับดูแล <span style="color:var(--mute)">— ประธาน</span><br>
+          คณบดีสำนักวิชา ADT<br>
+          ผู้แทนด้านวิจัยและนวัตกรรม<br>
+          ผู้แทนด้านการเงินและพัสดุ
+        </div>
+
+        <div class="lbl" style="color:var(--gold2)">กรรมการภายนอก · 2–3 คน</div>
+        <div style="font-size:13.5px;font-weight:300;line-height:1.75;margin-top:4px;border-left:2px solid var(--gold);padding-left:10px">
+          ผู้บริหารภาคอุตสาหกรรมดิจิทัล<br>
+          นักลงทุน / ผู้แทน VC หรือ CVC<br>
+          ผู้ทรงคุณวุฒิด้านสุขภาพหรือเมืองอัจฉริยะ
+        </div>
+      </div>
+
+      <div class="card k">
+        <div class="lbl" style="color:var(--gold2)">เพิ่มเติมในระยะที่ ๒</div>
+        <div class="txt" style="margin-top:4px">ผู้ช่วยด้าน<b style="color:var(--ink)">การเงิน</b> · ผู้ช่วยด้าน<b style="color:var(--ink)">การตลาด</b> · ผู้เชี่ยวชาญด้านการลงทุน — สองหน้าที่แรกคือสิ่งที่ทีมระยะเริ่มต้นขาดและจ้างเองไม่ไหว</div>
+      </div>
+    </div>
+  </div>
+  <div class="pg mono">04</div>
+</section>
+
+<!-- ═══════════ 5 · TWO PHASES ═══════════ -->
+<section class="s" data-cap="สองระยะ · Phase 1 → Phase 2">
+  <div class="head">
+    <div class="eyebrow">Phasing</div>
+    <h1 class="t">ทำไมต้องแยกสองระยะ</h1>
+    <div class="sub">มหาวิทยาลัย <b style="color:var(--ink)">ถือหุ้นในบริษัทเองไม่ได้</b> — นั่นคือเหตุผลเดียวของการมีระยะที่ ๒ ทุกอย่างที่เหลือตามมาจากข้อนี้</div>
+  </div>
+
+  <div class="body">
+    <div style="display:flex;gap:3px;margin-bottom:16px">
+      <div style="flex:1;padding:10px 13px;background:var(--red);color:var(--hi);border-radius:2px 0 0 2px">
+        <div class="mono" style="font-size:11px;letter-spacing:.13em;opacity:.72">ปีที่ 1</div>
+        <div style="font-weight:500;font-size:13.5px;margin-top:3px;line-height:1.45">ตั้งศูนย์ใต้มหาวิทยาลัย · 3 แฮกกาธอน → 9 MVP · เริ่มงานมูลนิธิ/สภาฯ</div></div>
+      <div style="flex:1;padding:10px 13px;background:var(--red-m);color:var(--hi)">
+        <div class="mono" style="font-size:11px;letter-spacing:.13em;opacity:.72">ปีที่ 2</div>
+        <div style="font-weight:500;font-size:13.5px;margin-top:3px;line-height:1.45">รอบเดิมซ้ำ — สะสม ~18 ทีม · มติสภาฯ และข้อบังคับแล้วเสร็จ</div></div>
+      <div style="flex:1;padding:10px 13px;background:var(--gold);color:#2A1E08">
+        <div class="mono" style="font-size:11px;letter-spacing:.13em;opacity:.75">ปีที่ 3</div>
+        <div style="font-weight:500;font-size:13.5px;margin-top:3px;line-height:1.45"><b>Spin-off</b> — มูลนิธิรับช่วงเป็น holding · เริ่ม scale-up และการลงทุน</div></div>
+      <div style="flex:.72;padding:10px 13px;background:var(--ink2);color:var(--cream2);border-radius:0 2px 2px 0">
+        <div class="mono" style="font-size:11px;letter-spacing:.13em;opacity:.68">ปีที่ 4+</div>
+        <div style="font-weight:500;font-size:13.5px;margin-top:3px;line-height:1.45">ดำเนินงานเต็มรูปแบบ</div></div>
+    </div>
+
+    <div class="row" style="flex:1;align-items:stretch">
+      <div class="card grow" style="border-color:var(--red);border-width:1.5px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline">
+          <div><div class="eyebrow" style="color:var(--red)">Phase 1 · Launch</div>
+            <div style="font-size:21px;font-weight:600;margin-top:1px">ระยะที่ ๑ — ตั้งต้น</div></div>
+          <div class="mono" style="font-size:13px;color:var(--mute)">ปีที่ 1–2</div>
+        </div>
+        <table class="t" style="margin-top:10px">
+          <tr><td style="width:33%;color:var(--mute)">ต้นสังกัด</td><td>มหาวิทยาลัยแม่ฟ้าหลวง (ADT)</td></tr>
+          <tr><td style="color:var(--mute)">เป้าหมาย</td><td>พิสูจน์ความต้องการ สร้าง pipeline</td></tr>
+          <tr><td style="color:var(--mute)">ผู้บริหารศูนย์</td><td>รักษาการ — <b>ไม่ตั้งงบ</b></td></tr>
+          <tr><td style="color:var(--mute)">อัตรากำลัง</td><td>2 อัตรา (ยืมตัว 1 · ใหม่ 1)</td></tr>
+          <tr><td style="color:var(--mute)">ถือหุ้น</td><td>ยังถือเองไม่ได้ — จองสิทธิ์ให้มูลนิธิ 15%</td></tr>
+          <tr class="sum"><td>งบประมาณ</td><td>฿3,278,500 (ปี 1) · ฿2,778,500 (ปี 2)</td></tr>
+        </table>
+        <div class="note" style="margin-top:9px">เริ่มได้ก่อนเงิน MDES ฿575M มาถึง และเป็นตัวพิสูจน์โมเดลการดำเนินงาน</div>
+      </div>
+
+      <div style="width:56px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px">
+        <svg width="36" height="36" viewBox="0 0 34 34"><circle cx="17" cy="17" r="16" fill="none" stroke="#A87A2C" stroke-width="1.2" stroke-dasharray="3 3"/><path d="M12 17h11M19 12l5 5-5 5" fill="none" stroke="#A87A2C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="lbl" style="writing-mode:vertical-rl;color:var(--gold2);letter-spacing:.2em">Spin-off</div>
+      </div>
+
+      <div class="card g grow" style="border-width:1.5px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline">
+          <div><div class="eyebrow" style="color:var(--gold2)">Phase 2 · Spin-off</div>
+            <div style="font-size:21px;font-weight:600;margin-top:1px">ระยะที่ ๒ — ถือหุ้นและขยายผล</div></div>
+          <div class="mono" style="font-size:13px;color:var(--mute)">ปีที่ 3+</div>
+        </div>
+        <table class="t" style="margin-top:10px">
+          <tr><td style="width:33%;color:var(--mute)">ต้นสังกัด</td><td>มูลนิธิ มฟล. — <b>holding company</b></td></tr>
+          <tr><td style="color:var(--mute)">เป้าหมาย</td><td>ถือหุ้น ขยาย MVP เป็นบริษัท</td></tr>
+          <tr><td style="color:var(--mute)">ผู้บริหารศูนย์</td><td>เต็มเวลา 1 อัตรา</td></tr>
+          <tr><td style="color:var(--mute)">อัตรากำลัง</td><td>ผู้ช่วย 2 (การเงิน · การตลาด) + ผู้เชี่ยวชาญลงทุน</td></tr>
+          <tr><td style="color:var(--mute)">ถือหุ้น</td><td>มูลนิธิ 15% + นักลงทุนเข้าร่วม</td></tr>
+          <tr class="sum"><td>งบประมาณ</td><td>฿6,805,000 / ปี + กองทุนลงทุน</td></tr>
+        </table>
+        <div class="note" style="margin-top:9px"><span class="chip r">ต้องตรวจสอบ</span> ข้อบังคับและระเบียบการเงินของมูลนิธิ ว่าอนุญาตให้ถือหุ้นในบริษัทได้หรือไม่ — กำหนดชะตาของทั้งระยะที่ ๒</div>
+      </div>
+    </div>
+  </div>
+  <div class="pg mono">05</div>
+</section>
+
+<!-- ═══════════ 6 · PHASE 1 BUDGET ═══════════ -->
+<section class="s" data-cap="งบระยะที่ ๑ · Phase 1 Budget">
+  <div class="head">
+    <div class="eyebrow">Phase 1 Budget · 2 years</div>
+    <h1 class="t">งบประมาณระยะที่ ๑ — รวม ฿6,057,000</h1>
+  </div>
+
+  <div class="body row" style="gap:20px">
+    <div style="flex:.8;display:flex;flex-direction:column">
+      <div style="flex:1;display:flex;align-items:flex-end;gap:38px;padding:0 12px;min-height:0">
+        <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;height:100%">
+          <div class="mono" style="font-size:19px;font-weight:600;text-align:center;margin-bottom:7px">฿3,278,500</div>
+          <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;min-height:0">
+            <div style="height:15.25%;background:var(--ink2);color:var(--cream2);display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:500">฿0.50M</div>
+            <div style="height:45.25%;background:var(--gold);color:#2A1E08;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:500">฿1.48M</div>
+            <div style="height:39.5%;background:var(--red);color:var(--hi);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:500">฿1.30M</div>
+          </div>
+          <div class="lbl" style="text-align:center;margin-top:8px">ปีที่ 1</div>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;height:100%">
+          <div class="mono" style="font-size:19px;font-weight:600;text-align:center;margin-bottom:7px">฿2,778,500</div>
+          <div style="flex:.8475;display:flex;flex-direction:column;justify-content:flex-end;min-height:0">
+            <div style="height:53.4%;background:var(--gold);color:#2A1E08;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:500">฿1.48M</div>
+            <div style="height:46.6%;background:var(--red);color:var(--hi);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:500">฿1.30M</div>
+          </div>
+          <div class="lbl" style="text-align:center;margin-top:8px">ปีที่ 2</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:14px;margin-top:14px;padding-top:12px;border-top:1px solid var(--rule);flex-wrap:wrap">
+        <div style="display:flex;align-items:center;gap:6px"><span class="sw" style="background:var(--red)"></span><span style="font-size:13px">ดำเนินงานศูนย์</span></div>
+        <div style="display:flex;align-items:center;gap:6px"><span class="sw" style="background:var(--gold)"></span><span style="font-size:13px">โครงการ/กิจกรรม</span></div>
+        <div style="display:flex;align-items:center;gap:6px"><span class="sw" style="background:var(--ink2)"></span><span style="font-size:13px">ครุภัณฑ์ (ปีแรกครั้งเดียว)</span></div>
+      </div>
+      <div class="note" style="margin-top:11px">ปีที่ 2 ทำซ้ำรูปแบบเดิม <b style="color:var(--ink)">โดยไม่ซื้อครุภัณฑ์เพิ่ม</b> — เครื่อง DGX สองเครื่องใช้ต่อเนื่อง หากจำนวนทีมโตขึ้น เครื่องที่สาม (฿250,000) คือรายการเดียวที่ควรเพิ่ม</div>
+    </div>
+
+    <div style="flex:1.2;display:flex;flex-direction:column;gap:7px">
+      <div class="card" style="padding:8px 14px">
+        <div class="eyebrow" style="color:var(--red)">Running the centre</div>
+        <table class="t" style="margin-top:6px">
+          <tr><th style="width:56%">รายการ</th><th style="text-align:right">ปีที่ 1</th><th style="text-align:right">ปีที่ 2</th></tr>
+          <tr><td>เจ้าหน้าที่บริหาร (tech PM) <span class="sm">อัตราใหม่</span></td><td class="n">320,000</td><td class="n">320,000</td></tr>
+          <tr><td>เจ้าหน้าที่การเงิน–จัดซื้อ <span class="sm">ยืมตัว</span></td><td class="n">0</td><td class="n">0</td></tr>
+          <tr><td>AI coding agent <span class="sm">10 seat × $125/ด.</span></td><td class="n">675,000</td><td class="n">675,000</td></tr>
+          <tr><td>Cloud / AI API credits</td><td class="n">200,000</td><td class="n">200,000</td></tr>
+          <tr><td>ซอฟต์แวร์และเครื่องมือ</td><td class="n">100,000</td><td class="n">100,000</td></tr>
+          <tr class="sum"><td>รวม</td><td class="n">1,295,000</td><td class="n">1,295,000</td></tr>
+        </table>
+      </div>
+      <div class="card g" style="padding:8px 14px">
+        <div class="eyebrow" style="color:var(--gold2)">Programmes</div>
+        <table class="t" style="margin-top:6px">
+          <tr><th style="width:56%">รายการ</th><th style="text-align:right">ปีที่ 1</th><th style="text-align:right">ปีที่ 2</th></tr>
+          <tr><td>แฮกกาธอน <span class="sm">3 × ฿100,000</span></td><td class="n">300,000</td><td class="n">300,000</td></tr>
+          <tr><td>รอบ MVP — สนับสนุนทีม <span class="sm">3 × ฿300,000</span></td><td class="n">900,000</td><td class="n">900,000</td></tr>
+          <tr><td>ออกบูธปิดรอบ <span class="sm">3 × ฿94,500</span></td><td class="n">283,500</td><td class="n">283,500</td></tr>
+          <tr class="sum"><td>รวม</td><td class="n">1,483,500</td><td class="n">1,483,500</td></tr>
+        </table>
+      </div>
+      <div class="card" style="padding:7px 14px;display:flex;justify-content:space-between;align-items:center">
+        <div><div class="eyebrow">Equipment</div><div style="font-size:14px;margin-top:2px">NVIDIA DGX × 2 <span class="sm" style="color:var(--mute);font-size:12px">฿250,000 ต่อเครื่อง · ปีแรกครั้งเดียว</span></div></div>
+        <div class="mono" style="font-size:17px;font-weight:600">500,000</div>
+      </div>
+      <div class="card r" style="padding:10px 15px;display:flex;align-items:center;justify-content:space-between">
+        <div><div class="lbl">รวมทั้งระยะที่ ๑</div><div style="font-size:13px;font-weight:300;color:rgba(255,240,210,.78)">ปีที่ 1 ฿3,278,500 + ปีที่ 2 ฿2,778,500</div></div>
+        <div class="big" style="font-size:34px">฿6,057,000</div>
+      </div>
+    </div>
+  </div>
+  <div class="pg mono">06</div>
+</section>
+
+<!-- ═══════════ 7 · PHASE 2 BUDGET ═══════════ -->
+<section class="s" data-cap="งบระยะที่ ๒ · Phase 2 &amp; Fund">
+  <div class="head">
+    <div class="eyebrow">Phase 2 Budget · annual, from year 3</div>
+    <h1 class="t">งบดำเนินงานระยะที่ ๒ และกองทุนลงทุน</h1>
+  </div>
+
+  <div class="body row" style="gap:14px">
+    <div class="card grow" style="padding:11px 14px">
+      <div class="eyebrow" style="color:var(--red)">Running the centre</div>
+      <table class="t" style="margin-top:7px">
+        <tr><td>ผู้บริหารศูนย์ <span class="sm">เต็มเวลา</span></td><td class="n">960,000</td></tr>
+        <tr><td>ผู้ช่วยด้านการเงิน</td><td class="n">350,000</td></tr>
+        <tr><td>ผู้ช่วยด้านการตลาด</td><td class="n">350,000</td></tr>
+        <tr><td>ผู้เชี่ยวชาญการลงทุน <span class="sm">part-time</span></td><td class="n">420,000</td></tr>
+        <tr><td>AI coding agent · 10 seat</td><td class="n">675,000</td></tr>
+        <tr><td>Cloud · เครื่องมือ · บริหาร</td><td class="n">300,000</td></tr>
+        <tr class="sum"><td>รวม</td><td class="n">3,055,000</td></tr>
+      </table>
+      <div class="note" style="margin-top:10px;border-top:1px solid var(--rule2);padding-top:9px">
+        <b style="color:var(--ink)">การเงินและการตลาดคือสองหน้าที่ที่ทุกทีมระยะเริ่มต้นขาด</b> — การจัดให้จากส่วนกลางคือสิ่งที่หุ้น 15% ของมูลนิธิซื้อมาจริง ๆ
+      </div>
+    </div>
+
+    <div class="card g grow" style="padding:11px 14px">
+      <div class="eyebrow" style="color:var(--gold2)">Programmes</div>
+      <table class="t" style="margin-top:7px">
+        <tr><td>แฮกกาธอน <span class="sm">3 × ฿150,000</span></td><td class="n">450,000</td></tr>
+        <tr><td>รอบ MVP <span class="sm">3 × ฿500,000 รวมออกบูธ</span></td><td class="n">1,500,000</td></tr>
+        <tr><td>Go-to-market sprint <span class="sm">3 × ฿200,000</span></td><td class="n">600,000</td></tr>
+        <tr><td>จับคู่ corporate pilot</td><td class="n">400,000</td></tr>
+        <tr><td>Investor readiness + demo day</td><td class="n">400,000</td></tr>
+        <tr><td>Shared back office <span class="sm">จดทะเบียน บัญชี IP</span></td><td class="n">400,000</td></tr>
+        <tr class="sum"><td>รวม</td><td class="n">3,750,000</td></tr>
+      </table>
+      <div class="note" style="margin-top:10px;border-top:1px solid rgba(168,122,44,.35);padding-top:9px">
+        สามรายการล่างคือส่วนที่ระยะที่ ๑ ไม่มี — <b style="color:var(--ink)">MVP ไม่ใช่ธุรกิจ</b> ความล้มเหลวส่วนใหญ่เกิดระหว่างเดโมที่ใช้ได้ กับบริษัทที่ขายได้
+      </div>
+    </div>
+
+    <div style="flex:.88;display:flex;flex-direction:column;gap:11px">
+      <div class="card r" style="padding:13px 15px">
+        <div class="lbl">รวมงบดำเนินงานต่อปี</div>
+        <div class="big" style="font-size:36px;margin-top:5px">฿6,805,000</div>
+        <div style="display:flex;gap:3px;margin-top:11px;height:10px">
+          <div style="flex:3055;background:var(--hi)"></div><div style="flex:3750;background:var(--gold)"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;margin-top:6px;font-size:12px;color:rgba(255,240,210,.85)"><span>ศูนย์ 45%</span><span>โครงการ 55%</span></div>
+      </div>
+
+      <div class="card" style="padding:13px 15px;border-color:var(--gold);border-width:1.5px;flex:1;display:flex;flex-direction:column;justify-content:center">
+        <div class="eyebrow" style="color:var(--gold2)">Investment pool · แยกต่างหาก</div>
+        <div style="font-size:17px;font-weight:600;margin-top:3px">กองทุนลงทุน pre-seed</div>
+        <div class="big" style="font-size:30px;margin-top:9px;color:var(--gold2)">฿5–10<span style="font-size:15px;font-weight:400;color:var(--ink2)"> ล้าน / ปี</span></div>
+        <div class="txt" style="margin-top:9px">
+          รองรับ <b style="color:var(--ink)">5–10 บริษัท</b> ที่ ฿0.5–1 ล้านต่อราย — เป็นทุนที่แปลงเป็นหุ้น ไม่ใช่ค่าใช้จ่าย จึงไม่รวมในตารางซ้าย
+        </div>
+        <div class="note" style="margin-top:10px;border-top:1px solid var(--rule2);padding-top:9px">
+          <span class="chip r">ต้องตัดสินใจ</span> ขนาดกองทุน แหล่งเงิน และผู้อนุมัติแต่ละดีล
+        </div>
+      </div>
+
+      <div class="card k" style="padding:10px 14px">
+        <div class="note">หาก <b style="color:var(--ink)">งบครุภัณฑ์ MDES ฿150M</b> ได้รับอนุมัติ จะลงในช่วงเวลานี้พอดี และเข้ามาแทนบรรทัดครุภัณฑ์ทั้งหมด — คนละข้อเสนอ ไม่ซ้ำซ้อน</div>
+      </div>
+    </div>
+  </div>
+  <div class="pg mono">07</div>
+</section>
+
+<!-- ═══════════ 8 · EQUITY (PIE) ═══════════ -->
+<section class="s" data-cap="โมเดลผลตอบแทน · Equity">
+  <div class="head">
+    <div class="eyebrow">Investment structure</div>
+    <h1 class="t">รูปแบบการถือหุ้นและการให้ผลตอบแทน</h1>
+    <div class="sub">เงื่อนไขถูกกำหนดและประกาศล่วงหน้า — ทีมรู้ก่อนเข้าแฮกกาธอน ไม่ใช่มาเถียงกันทีหลัง</div>
+  </div>
+
+  <div class="body row" style="gap:16px">
+    <!-- pies -->
+    <div class="card" style="flex:1.08;display:flex;flex-direction:column">
+      <div class="eyebrow" style="color:var(--red)">Cap table</div>
+      <div style="font-size:17px;font-weight:600;margin:2px 0 0">โครงสร้างหุ้นของบริษัทที่เกิดจากศูนย์</div>
+      <div class="row" style="flex:1;align-items:center;gap:10px;margin-top:8px">
+        <!-- pie 1 -->
+        <div style="flex:1;text-align:center">
+          <div class="lbl" style="margin-bottom:5px">ตอนตั้งบริษัท</div>
+          <svg viewBox="0 0 100 100" style="width:100%;max-width:168px" role="img" aria-label="สัดส่วนหุ้นตอนตั้งบริษัท: มูลนิธิ 15% ทีมผู้ก่อตั้ง 68% ที่ปรึกษา 17%">
+            <g transform="rotate(-90 50 50)" fill="none" stroke-width="50">
+              <circle cx="50" cy="50" r="25" stroke="#7A1C1C" stroke-dasharray="23.56 133.52" stroke-dashoffset="0"/>
+              <circle cx="50" cy="50" r="25" stroke="#A87A2C" stroke-dasharray="106.81 50.27" stroke-dashoffset="-23.56"/>
+              <circle cx="50" cy="50" r="25" stroke="#4A3F33" stroke-dasharray="26.70 130.38" stroke-dashoffset="-130.37"/>
+            </g>
+            <circle cx="50" cy="50" r="25" fill="none" stroke="#FAF6EE" stroke-width="0"/>
+          </svg>
+        </div>
+        <!-- pie 2 -->
+        <div style="flex:1;text-align:center">
+          <div class="lbl" style="margin-bottom:5px">หลังรอบ pre-seed 20%</div>
+          <svg viewBox="0 0 100 100" style="width:100%;max-width:168px" role="img" aria-label="สัดส่วนหุ้นหลังรอบ pre-seed 20%: มูลนิธิ 12% ทีมผู้ก่อตั้ง 54.4% ที่ปรึกษา 13.6% นักลงทุน 20%">
+            <g transform="rotate(-90 50 50)" fill="none" stroke-width="50">
+              <circle cx="50" cy="50" r="25" stroke="#7A1C1C" stroke-dasharray="18.85 138.23" stroke-dashoffset="0"/>
+              <circle cx="50" cy="50" r="25" stroke="#A87A2C" stroke-dasharray="85.45 71.63" stroke-dashoffset="-18.85"/>
+              <circle cx="50" cy="50" r="25" stroke="#4A3F33" stroke-dasharray="21.36 135.72" stroke-dashoffset="-104.30"/>
+              <circle cx="50" cy="50" r="25" stroke="#2E5F7A" stroke-dasharray="31.42 125.66" stroke-dashoffset="-125.66"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <table class="t" style="margin-top:6px">
+        <tr><th style="width:16px"></th><th>ผู้ถือหุ้น</th><th style="text-align:right">ตั้งบริษัท</th><th style="text-align:right">หลัง pre-seed</th></tr>
+        <tr><td><span class="sw" style="background:var(--red)"></span></td><td>มูลนิธิ มฟล. <span class="sm">คงที่ · ชำระด้วยทรัพยากร ไม่ใช่เงินสด</span></td><td class="n"><b>15%</b></td><td class="n">12.0%</td></tr>
+        <tr><td><span class="sw" style="background:var(--gold)"></span></td><td>ทีมผู้ก่อตั้ง</td><td class="n"><b>65–75%</b></td><td class="n">54.4%</td></tr>
+        <tr><td><span class="sw" style="background:var(--ink2)"></span></td><td>ที่ปรึกษาของบริษัท</td><td class="n"><b>10–20%</b></td><td class="n">13.6%</td></tr>
+        <tr><td><span class="sw" style="background:var(--blue)"></span></td><td>นักลงทุน <span class="sm">ระยะที่ ๒</span></td><td class="n">—</td><td class="n">20.0%</td></tr>
+      </table>
+      <div class="note" style="margin-top:8px">ทุกส่วนที่ไม่ใช่ของมูลนิธิ <b style="color:var(--ink)">vest ตามเวลา</b> (เสนอ 4 ปี · cliff 1 ปี) · เมื่อมีนักลงทุนเข้า ทุกคน dilute ตามสัดส่วน รวมถึงมูลนิธิ</div>
+    </div>
+
+    <!-- comp model -->
+    <div style="flex:1.1;display:flex;flex-direction:column;gap:11px">
+      <div class="card g" style="border-width:1.5px;flex:1">
+        <div class="eyebrow" style="color:var(--gold2)">Compensation model</div>
+        <div style="font-size:17px;font-weight:600;margin:2px 0 3px">ในกลุ่ม 85% ไม่มีใครได้เท่ากัน</div>
+        <div class="note" style="margin-bottom:9px">สัดส่วนขึ้นกับสองอย่าง — <b style="color:var(--ink)">ทำหน้าที่อะไร</b> และ <b style="color:var(--ink)">รับเงินสดไปเท่าไหร่</b></div>
+        <div class="card" style="border-color:var(--gold);text-align:center;padding:9px">
+          <div class="mono" style="font-size:14px;font-weight:600">
+            หุ้น = <span style="color:var(--red)">(คะแนนบทบาท × ตัวคูณเงินสด)</span> ÷ คะแนนรวม × 85%
+          </div>
+        </div>
+        <div class="row" style="margin-top:10px;gap:14px">
+          <div style="flex:1">
+            <div class="lbl">คะแนนบทบาท</div>
+            <table class="t" style="margin-top:3px">
+              <tr><td style="padding:3.5px 0">ผู้ก่อตั้ง / product owner</td><td class="n">40</td></tr>
+              <tr><td style="padding:3.5px 0">Technical co-founder</td><td class="n">35</td></tr>
+              <tr><td style="padding:3.5px 0">ทีมงานหลัก เต็มเวลา</td><td class="n">15</td></tr>
+              <tr><td style="padding:3.5px 0">นักพัฒนา part-time</td><td class="n">6</td></tr>
+              <tr><td style="padding:3.5px 0;border-bottom:0">ที่ปรึกษาอุตสาหกรรม</td><td class="n" style="border-bottom:0">4</td></tr>
+            </table>
+          </div>
+          <div style="flex:1">
+            <div class="lbl">ตัวคูณเงินสด</div>
+            <table class="t" style="margin-top:3px">
+              <tr><td style="padding:5px 0">ไม่รับค่าตอบแทน</td><td class="n red" style="font-weight:600">× 2.0</td></tr>
+              <tr><td style="padding:5px 0">รับบางส่วน <span class="sm">ครึ่งอัตรา</span></td><td class="n" style="color:var(--gold2);font-weight:600">× 1.5</td></tr>
+              <tr><td style="padding:5px 0;border-bottom:0">รับเต็มอัตรา</td><td class="n" style="border-bottom:0;font-weight:600">× 1.0</td></tr>
+            </table>
+            <div class="note" style="margin-top:7px">คนสองคนทำงานเดียวกัน คนที่ไม่รับเงินได้หุ้น <b class="red">สองเท่า</b> — และทุกคนรู้ตั้งแต่ต้น</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="padding:11px 14px">
+        <div class="lbl">เพิ่มในระยะที่ ๒</div>
+        <div style="display:flex;gap:14px;margin-top:5px">
+          <div style="flex:1;border-left:2px solid var(--gold);padding-left:9px"><div style="font-size:13.5px;font-weight:500">ESOP 10%</div><div class="note">กันจาก 85% ของทีม ไม่ใช่จาก 15% ของมูลนิธิ</div></div>
+          <div style="flex:1;border-left:2px solid var(--rule);padding-left:9px"><div style="font-size:13.5px;font-weight:500">เงินเดือนจริง</div><div class="note">เมื่อบริษัทจ่ายได้ คนส่วนใหญ่ย้ายมา × 1.0</div></div>
+          <div style="flex:1.2;border-left:2px solid var(--red);padding-left:9px"><div style="font-size:13.5px;font-weight:500">ทีมศูนย์ไม่ถือหุ้นส่วนตัว</div><div class="note">upside อยู่ที่ 15% ของมูลนิธิ — เลี่ยงผลประโยชน์ทับซ้อนในคนที่ตัดสินว่าใครได้ทุน</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pg mono">08</div>
+</section>
+
+<!-- ═══════════ 9 · ROI ═══════════ -->
+<section class="s" data-cap="ผลตอบแทน · ROI">
+  <div class="head">
+    <div class="eyebrow">Return on investment</div>
+    <h1 class="t">ผลตอบแทน — รายได้ระหว่างทาง กับมูลค่าที่แท้จริงปลายทาง</h1>
+    <div class="sub">ระยะที่ ๑ <b style="color:var(--ink)">ไม่คุ้มทุนและไม่ได้ตั้งใจให้คุ้ม</b> — ผลตอบแทนจริงคือหุ้น 15% ของสิ่งที่ 18 ผลิตภัณฑ์นั้นกลายเป็น</div>
+  </div>
+
+  <div class="body row" style="gap:14px">
+    <div class="card" style="flex:1">
+      <div class="eyebrow" style="color:var(--red)">Traction ladder · 2 ปีสะสม</div>
+      <div style="font-size:17px;font-weight:600;margin:2px 0 11px">บันไดการใช้งานจริง</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:14px"><b class="mono red">T0</b> &nbsp;MVP ใช้งานได้ครบวงจร</span><span class="mono" style="font-size:17px;font-weight:600">18</span></div>
+          <div style="height:26px;background:var(--rule2);margin-top:4px"><div style="width:100%;height:100%;background:var(--red)"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:14px"><b class="mono red">T1</b> &nbsp;มีองค์กรใช้จริง <span class="sm" style="color:var(--mute)">MOU</span></span><span class="mono" style="font-size:17px;font-weight:600">10</span></div>
+          <div style="height:26px;background:var(--rule2);margin-top:4px"><div style="width:56%;height:100%;background:var(--red);opacity:.78"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:14px"><b class="mono red">T2</b> &nbsp;Paid pilot <span class="sm" style="color:var(--mute)">มีใบแจ้งหนี้</span></span><span class="mono" style="font-size:17px;font-weight:600">3</span></div>
+          <div style="height:26px;background:var(--rule2);margin-top:4px"><div style="width:17%;height:100%;background:var(--gold)"></div></div>
+        </div>
+      </div>
+      <div class="note" style="margin-top:11px;border-top:1px solid var(--rule2);padding-top:9px">สมมติฐาน ~55% ของ MVP หา design partner ได้ และ ~30% ของนั้นแปลงเป็น paid pilot — <b style="color:var(--ink)">ตั้งใจให้ระมัดระวัง</b> เพราะเป็นสองปีแรก</div>
+    </div>
+
+    <div class="card g" style="flex:1">
+      <div class="eyebrow" style="color:var(--gold2)">Revenue &amp; cost recovery</div>
+      <div style="font-size:17px;font-weight:600;margin:2px 0 10px">รายได้ระหว่างทาง</div>
+      <table class="t">
+        <tr><th style="width:42%">แหล่งรายได้</th><th style="text-align:right">ปีที่ 1</th><th style="text-align:right">ปีที่ 2</th><th style="text-align:right">รวม</th></tr>
+        <tr><td>Paid pilot</td><td class="n">200,000</td><td class="n">750,000</td><td class="n">950,000</td></tr>
+        <tr><td>ผู้สนับสนุนงานกิจกรรม</td><td class="n">150,000</td><td class="n">240,000</td><td class="n">390,000</td></tr>
+        <tr><td>อบรม / บริการวิชาการ</td><td class="n">100,000</td><td class="n">210,000</td><td class="n">310,000</td></tr>
+        <tr class="sum"><td>รวม</td><td class="n">450,000</td><td class="n">1,200,000</td><td class="n">1,650,000</td></tr>
+      </table>
+      <div style="margin-top:14px">
+        <div class="lbl">สัดส่วนคืนทุน</div>
+        <div style="display:flex;gap:12px;margin-top:7px;align-items:flex-end">
+          <div style="flex:1"><div style="height:58px;background:var(--rule2);display:flex;align-items:flex-end"><div style="width:100%;height:34%;background:var(--gold)"></div></div><div style="display:flex;justify-content:space-between;margin-top:4px"><span class="lbl">ปีที่ 1</span><span class="mono" style="font-size:14px;font-weight:600">14%</span></div></div>
+          <div style="flex:1"><div style="height:58px;background:var(--rule2);display:flex;align-items:flex-end"><div style="width:100%;height:100%;background:var(--gold)"></div></div><div style="display:flex;justify-content:space-between;margin-top:4px"><span class="lbl">ปีที่ 2</span><span class="mono" style="font-size:14px;font-weight:600">41%</span></div></div>
+          <div style="flex:1"><div style="height:58px;background:var(--rule2);display:flex;align-items:flex-end"><div style="width:100%;height:66%;background:var(--red)"></div></div><div style="display:flex;justify-content:space-between;margin-top:4px"><span class="lbl">เฉลี่ย</span><span class="mono red" style="font-size:14px;font-weight:600">27%</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="flex:.9;display:flex;flex-direction:column;gap:11px">
+      <div class="card" style="padding:11px 14px">
+        <div class="eyebrow">Market · ผู้ซื้ออยู่หน้าประตูแล้ว</div>
+        <table class="t" style="margin-top:6px">
+          <tr><td style="padding:4px 0">โรงพยาบาลสังกัด สธ.</td><td class="n">~900</td></tr>
+          <tr><td style="padding:4px 0">โรงพยาบาลเอกชน</td><td class="n">~370</td></tr>
+          <tr><td style="padding:4px 0">รพ.สต.</td><td class="n">~9,800</td></tr>
+          <tr><td style="padding:4px 0;border-bottom:0">อปท. <span class="sm">เทศบาล/อบต./อบจ.</span></td><td class="n" style="border-bottom:0">~7,800</td></tr>
+        </table>
+        <div class="note" style="margin-top:8px">Pilot ที่ ฿150,000–800,000 อยู่ในกรอบงบไอทีปกติ — <b style="color:var(--ink)">ข้อจำกัดไม่ใช่ขนาดตลาด แต่คือกำลังส่งมอบ</b></div>
+      </div>
+      <div class="card r" style="padding:13px 15px;flex:1;display:flex;flex-direction:column;justify-content:center">
+        <div class="lbl">ผลตอบแทนที่แท้จริง</div>
+        <div style="font-size:19px;font-weight:600;margin-top:4px;line-height:1.3">หุ้น 15% ในทุกบริษัทที่เกิดขึ้น</div>
+        <div class="txt" style="margin-top:8px;color:rgba(255,240,210,.9)">
+          ระยะที่ ๒ ตั้งเป้า <b>2–3 บริษัทจดทะเบียนต่อปี</b> ที่ยังดำเนินการหลัง 12 เดือน และ <b>อย่างน้อย 1 บริษัทต่อปี</b> ระดมทุนรอบภายนอกได้
+        </div>
+        <div style="margin-top:10px;padding-top:9px;border-top:1px solid rgba(255,240,210,.25);font-size:13px;color:rgba(255,240,210,.82)">
+          ต้นทุนสร้างพอร์ต 2 ปีแรก <span class="mono" style="font-weight:600;color:var(--hi)">฿6.06M</span> ≈ ราคา pre-seed <span class="mono" style="font-weight:600;color:var(--hi)">6–12</span> ราย
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pg mono">09</div>
+</section>
+
+<!-- ═══════════ 10 · GATE & DECISIONS ═══════════ -->
+<section class="s" data-cap="เส้นทางและการตัดสินใจ · Next">
+  <div class="head">
+    <div class="eyebrow">Gate criteria &amp; decisions</div>
+    <h1 class="t">เกณฑ์ผ่านเข้าระยะที่ ๒ และเรื่องที่ต้องตัดสินใจ</h1>
+  </div>
+
+  <div class="body row" style="gap:16px">
+    <div class="card" style="flex:1.02;border-color:var(--red);border-width:1.5px">
+      <div class="eyebrow" style="color:var(--red)">Exit criteria · ประเมินปลายปีที่ 2</div>
+      <div style="font-size:17px;font-weight:600;margin:2px 0 11px">ต้องผ่านทั้งหมดจึง spin-off</div>
+      <div style="display:flex;flex-direction:column;gap:9px">
+        <div style="display:flex;gap:12px;align-items:center;border-bottom:1px solid var(--rule2);padding-bottom:9px"><div class="big red" style="font-size:24px;width:56px">18</div><div class="txt">MVP สร้างเสร็จ <span class="mono sm">T0</span> และ <b style="color:var(--ink)">10 ตัวมี design partner</b> <span class="mono sm">T1</span></div></div>
+        <div style="display:flex;gap:12px;align-items:center;border-bottom:1px solid var(--rule2);padding-bottom:9px"><div class="big red" style="font-size:24px;width:56px">3</div><div class="txt"><b style="color:var(--ink)">paid pilot ที่มีใบแจ้งหนี้จริง</b> <span class="mono sm">T2</span></div></div>
+        <div style="display:flex;gap:12px;align-items:center;border-bottom:1px solid var(--rule2);padding-bottom:9px"><div class="big red" style="font-size:21px;width:56px">฿1.65M</div><div class="txt">รายได้สะสม — คืนทุนราว 27%</div></div>
+        <div style="display:flex;gap:12px;align-items:center;border-bottom:1px solid var(--rule2);padding-bottom:9px"><div class="big red" style="font-size:24px;width:56px">10</div><div class="txt">ภาคีอุตสาหกรรมที่ร่วมงานจริง</div></div>
+        <div style="display:flex;gap:12px;align-items:center"><div class="big red" style="font-size:24px;width:56px">✓</div><div class="txt">สภามหาวิทยาลัยอนุมัติกลไกมูลนิธิ และเงื่อนไข IP/หุ้น</div></div>
+      </div>
+      <div class="note" style="margin-top:12px;background:var(--hi);padding:9px 11px;border-left:2px solid var(--gold)">
+        งานมติสภาฯ และข้อบังคับมูลนิธิ <b style="color:var(--ink)">ต้องเริ่มในปีที่ 1 และปิดในปีที่ 2</b> เพื่อให้ spin-off เกิดได้ในวันแรกของปีที่ 3 ไม่ใช่รอเอกสารหลังตัดสินใจแล้ว
+      </div>
+    </div>
+
+    <div style="flex:1;display:flex;flex-direction:column;gap:11px">
+      <div class="card k" style="flex:1">
+        <div class="eyebrow" style="color:var(--gold2)">Open decisions</div>
+        <div style="font-size:17px;font-weight:600;margin:2px 0 10px">เรื่องที่ยังไม่ตัดสิน</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;gap:10px;align-items:flex-start"><span class="chip r">กำหนดชะตา</span><span class="txt"><b style="color:var(--ink)">ข้อบังคับมูลนิธิอนุญาตให้ถือหุ้นหรือไม่</b> — ถ้าไม่ ต้องแก้ข้อบังคับหรือตั้งกลไก holding แยก</span></div>
+          <div style="display:flex;gap:10px;align-items:flex-start"><span class="chip">งบ</span><span class="txt">แหล่งงบระยะที่ ๑ — งบมหาวิทยาลัย งบสำนักวิชา หรือผู้สนับสนุน</span></div>
+          <div style="display:flex;gap:10px;align-items:flex-start"><span class="chip">งบ</span><span class="txt">ขนาดและแหล่งของกองทุนลงทุน และผู้อนุมัติแต่ละดีล</span></div>
+          <div style="display:flex;gap:10px;align-items:flex-start"><span class="chip">กลไก</span><span class="txt">แต่งตั้งคณะกรรมการบริหารศูนย์ — ใครแต่งตั้ง วาระกี่ปี กรรมการภายนอกมีค่าตอบแทนหรือไม่</span></div>
+          <div style="display:flex;gap:10px;align-items:flex-start"><span class="chip">กลไก</span><span class="txt">บริษัทเกิดขึ้นที่จุดไหน — จบรอบ MVP หรือเมื่อมีลูกค้ารายแรก</span></div>
+          <div style="display:flex;gap:10px;align-items:flex-start"><span class="chip">ราคา</span><span class="txt">เลือกสามงานออกบูธและขอใบเสนอราคา — ไม่มีผู้จัดรายใดประกาศราคา</span></div>
+        </div>
+      </div>
+
+      <div class="card r" style="padding:14px 16px">
+        <div class="lbl">สิ่งที่ขออนุมัติในหลักการ</div>
+        <div style="font-size:16px;font-weight:500;line-height:1.5;margin-top:6px">
+          จัดตั้งศูนย์ในระยะที่ ๑ ใต้มหาวิทยาลัย · แต่งตั้ง <b>คณะกรรมการบริหารศูนย์ 5–7 คน</b> ·
+          อนุมัติกรอบงบ <span class="mono" style="font-weight:600">฿6,057,000</span> สำหรับสองปี ·
+          และเริ่มงานข้อบังคับมูลนิธิควบคู่ตั้งแต่ปีที่ 1
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pg mono">10</div>
+</section>
+
+</div></div>
+<div id="grid"></div>
+
+<div id="bar">
+  <button id="prev" aria-label="สไลด์ก่อนหน้า">‹</button>
+  <div id="dots"></div>
+  <span id="cnt" class="mono">01 / 10</span>
+  <button id="next" aria-label="สไลด์ถัดไป">›</button>
+  <button id="ov" aria-label="ดูภาพรวม" title="ภาพรวมทั้งหมด (G)">▦</button>
+</div>
+
+<script>
+(function(){
+  var stage = document.getElementById('stage');
+  var slides = Array.prototype.slice.call(stage.querySelectorAll('.s'));
+  var dots = document.getElementById('dots');
+  var cnt = document.getElementById('cnt');
+  var i = 0;
+
+  slides.forEach(function(s, n){
+    var d = document.createElement('i');
+    d.addEventListener('click', function(){ go(n); });
+    dots.appendChild(d);
+  });
+  var dotEls = Array.prototype.slice.call(dots.children);
+
+  function pad(n){ return (n < 10 ? '0' : '') + n; }
+  function go(n){
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach(function(s, k){ s.classList.toggle('on', k === i); });
+    dotEls.forEach(function(d, k){ d.classList.toggle('on', k === i); });
+    cnt.textContent = pad(i + 1) + ' / ' + pad(slides.length);
+    if (document.body.classList.contains('overview')) toggleOv();
+  }
+
+  function fit(){
+    var vp = document.getElementById('viewport');
+    var s = Math.min(vp.clientWidth / 1280, vp.clientHeight / 720) * 0.955;
+    stage.style.transform = 'scale(' + s + ')';
+  }
+  window.addEventListener('resize', fit);
+  fit();
+
+  document.getElementById('prev').addEventListener('click', function(){ go(i - 1); });
+  document.getElementById('next').addEventListener('click', function(){ go(i + 1); });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { e.preventDefault(); go(i + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(i - 1); }
+    else if (e.key === 'Home') go(0);
+    else if (e.key === 'End') go(slides.length - 1);
+    else if (e.key === 'g' || e.key === 'G' || e.key === 'Escape') toggleOv();
+  });
+
+  var built = false;
+  function buildGrid(){
+    var grid = document.getElementById('grid');
+    slides.forEach(function(s, n){
+      var t = document.createElement('div');
+      t.className = 'thumb';
+      var inner = document.createElement('div');
+      inner.className = 'inner';
+      var c = s.cloneNode(true);
+      c.classList.add('on');
+      c.style.display = 'flex';
+      inner.appendChild(c);
+      t.appendChild(inner);
+      var cap = document.createElement('div');
+      cap.className = 'cap';
+      cap.innerHTML = '<b>' + pad(n + 1) + '</b><span>' + s.dataset.cap + '</span>';
+      t.appendChild(cap);
+      t.addEventListener('click', function(){ go(n); });
+      grid.appendChild(t);
+    });
+    built = true;
+  }
+  function scaleThumbs(){
+    Array.prototype.forEach.call(document.querySelectorAll('.thumb'), function(t){
+      t.querySelector('.inner').style.transform = 'scale(' + (t.clientWidth / 1280) + ')';
+    });
+  }
+  function toggleOv(){
+    if (!built) buildGrid();
+    document.body.classList.toggle('overview');
+    if (document.body.classList.contains('overview')) scaleThumbs();
+  }
+  document.getElementById('ov').addEventListener('click', toggleOv);
+  window.addEventListener('resize', function(){ if (built) scaleThumbs(); });
+
+  go(0);
+})();
+</script>
+
+</body>
+</html>
