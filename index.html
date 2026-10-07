@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="deck-version" content="2026-10-07.1">
 <meta name="description" content="แผนแนวคิดการจัดตั้งศูนย์นวัตกรรมด้านปัญญาประดิษฐ์และหุ่นยนต์ มหาวิทยาลัยแม่ฟ้าหลวง (MFU-ARIC) ระยะที่ 1-2">
 <link rel="icon" type="image/svg+xml" href="aric_logo_mark.svg">
 <style>
@@ -1053,6 +1054,7 @@ table.t.mfii th{font-size:11px}
   <span id="cnt" class="mono">01 / 13</span>
   <button id="next" aria-label="สไลด์ถัดไป">›</button>
   <button id="ov" aria-label="ดูภาพรวม" title="ภาพรวมทั้งหมด (G)">▦</button>
+  <span id="ver" class="mono" style="font-size:10px;color:rgba(201,168,122,.55);letter-spacing:.04em"></span>
 </div>
 
 <script>
@@ -1155,6 +1157,22 @@ table.t.mfii th{font-size:11px}
   window.addEventListener('resize', function(){ if (built) scaleThumbs(); });
 
   go(0);
+
+  // GitHub Pages serves max-age=600, so a browser may show a copy up to 10 min old.
+  // Ask the server for the current version (bypassing the cache); if it is newer,
+  // reload at a URL the browser has not cached. Bump deck-version on every publish.
+  var meta = document.querySelector('meta[name="deck-version"]');
+  var mine = meta ? meta.content : '';
+  document.getElementById('ver').textContent = 'v' + mine;
+  if (location.protocol.indexOf('http') === 0 && window.fetch) {
+    fetch(location.pathname + '?check=' + Date.now(), {cache: 'no-store'})
+      .then(function(r){ return r.ok ? r.text() : ''; })
+      .then(function(t){
+        var m = t.match(/name="deck-version" content="([^"]+)"/);
+        if (m && m[1] !== mine) location.replace(location.pathname + '?v=' + encodeURIComponent(m[1]) + location.hash);
+      })
+      .catch(function(){});
+  }
 })();
 </script>
 
