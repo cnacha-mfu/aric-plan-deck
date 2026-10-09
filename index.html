@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="deck-version" content="2026-10-09.3">
+<meta name="deck-version" content="2026-10-09.4">
 <meta name="description" content="แผนแนวคิดการจัดตั้งศูนย์นวัตกรรมด้านปัญญาประดิษฐ์และหุ่นยนต์ มหาวิทยาลัยแม่ฟ้าหลวง (MFU-ARIC) ระยะที่ 1-2">
 <link rel="icon" type="image/svg+xml" href="aric_logo_mark.svg">
 <title>ARIC Concept Plan</title>
@@ -176,6 +176,7 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
 .stage{display:flex;gap:16px;padding:14px 18px;border-radius:4px}
 .stage .dot{width:14px;height:14px;border-radius:50%;flex:none;margin-top:6px}
 .stage h2{margin:0;font-size:20px;font-weight:600}
+.stage .tagline{font-size:15.5px;font-weight:500;margin:1px 0 3px}
 .stage .when{font-family:var(--mono);font-size:12px;color:var(--mute);margin-left:8px;font-weight:400}
 .s.play .stage.a{animation:rise .6s var(--ease) both 200ms,rowA 12s linear 1.2s infinite}
 .s.play .stage.b{animation:rise .6s var(--ease) both 350ms,rowB 12s linear 1.2s infinite}
@@ -335,7 +336,7 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
     <div class="sub">วัดผลที่<b>มีคนใช้จริงกี่ตัว และมีคนจ่ายเงินกี่ตัว</b> ทุกรอบจึงจบที่ลูกค้า ไม่ใช่จบที่โค้ด</div>
   </div>
   <div class="body" style="gap:40px;align-items:center">
-    <svg class="ring" viewBox="0 0 460 460" width="430" height="430" style="flex:none" role="img" aria-label="วงจรหนึ่งรอบ 4 เดือน: แฮกกาธอน เดือนที่ 1, รอบ MVP เดือนที่ 2 ถึง 3, ออกบูธ เดือนที่ 4">
+    <svg class="ring" viewBox="0 0 460 460" width="430" height="430" style="flex:none" role="img" aria-label="วงจรหนึ่งรอบ 4 เดือน: ARIC Spark แฮกกาธอน เดือนที่ 1, ARIC Forge รอบ MVP เดือนที่ 2 ถึง 3, ARIC Launch ออกบูธ เดือนที่ 4">
       <circle cx="230" cy="230" r="170" fill="none" stroke="var(--rule2)" stroke-width="30"/>
       <g transform="rotate(-90 230 230)">
         <!-- C = 2π·170 = 1068.1 ; segments 25% / 50% / 25% with 8px gaps -->
@@ -348,9 +349,9 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
         <circle class="halo" cx="230" cy="60" r="13" fill="none" stroke="#E4B04A" stroke-width="3"/>
         <circle cx="230" cy="60" r="13" fill="#FFF0D2" stroke="#E4B04A" stroke-width="4"/>
       </g>
-      <text x="356" y="92" font-family="Prompt" font-size="15" font-weight="500" fill="#7A1C1C">เดือน 1</text>
-      <text x="230" y="452" font-family="Prompt" font-size="15" font-weight="500" fill="#93433F" text-anchor="middle">เดือน 2–3</text>
-      <text x="104" y="92" font-family="Prompt" font-size="15" font-weight="500" fill="#8E6420" text-anchor="end">เดือน 4</text>
+      <text x="352" y="90" font-family="Prompt" font-size="19" font-weight="600" fill="#7A1C1C">Spark</text>
+      <text x="230" y="454" font-family="Prompt" font-size="19" font-weight="600" fill="#93433F" text-anchor="middle">Forge</text>
+      <text x="108" y="90" font-family="Prompt" font-size="19" font-weight="600" fill="#8E6420" text-anchor="end">Launch</text>
       <text x="230" y="214" font-family="IBM Plex Mono" font-size="64" font-weight="600" fill="#1C1610" text-anchor="middle">×3</text>
       <text x="230" y="252" font-family="Prompt" font-size="17" fill="#6A5B4C" text-anchor="middle">รอบต่อปี</text>
       <text x="230" y="282" font-family="Prompt" font-size="15" fill="#6A5B4C" text-anchor="middle">9 ทีม · ฿1.48 ล้าน/ปี</text>
@@ -359,20 +360,23 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
     <div style="flex:1;display:flex;flex-direction:column;gap:6px">
       <div class="stage a">
         <span class="dot" style="background:#7A1C1C"></span>
-        <div><h2>แฮกกาธอน<span class="when">เดือน 1</span></h2>
+        <div><h2>ARIC Spark<span class="when">เดือน 1</span></h2>
+          <div class="tagline" style="color:#7A1C1C">จุดประกายไอเดีย — แฮกกาธอน</div>
           <div class="txt">เปิดรับโจทย์และทีมจากภายนอก คัดเหลือ <b>๓ ทีม</b> · ฿100,000 ต่อครั้ง</div></div>
       </div>
       <div class="stage b">
         <span class="dot" style="background:#93433F"></span>
-        <div style="flex:1"><h2>รอบ MVP<span class="when">เดือน 2–3</span></h2>
+        <div style="flex:1"><h2>ARIC Forge<span class="when">เดือน 2–3</span></h2>
+          <div class="tagline" style="color:#93433F">หลอมไอเดียเป็นของจริง — รอบ MVP</div>
           <div class="txt">ทุน<b>ทีมละ ฿100,000</b> + ที่ปรึกษาอุตสาหกรรม สร้างและทดสอบกับผู้ใช้จริง</div>
           <div class="split" aria-hidden="true"><span style="flex:50;background:#93433F"></span><span style="flex:40;background:var(--tan)"></span><span style="flex:10;background:var(--ink2)"></span></div>
           <div class="note" style="font-size:12px;margin-top:4px">ที่ปรึกษา 50,000 · นักพัฒนา 40,000 · วัสดุ 10,000</div></div>
       </div>
       <div class="stage c">
         <span class="dot" style="background:#A87A2C"></span>
-        <div><h2>ออกบูธ<span class="when">เดือน 4</span></h2>
-          <div class="txt">นำ MVP ไปพบลูกค้าและนักลงทุน — SITE · Techsauce · DigiTech ASEAN</div></div>
+        <div><h2>ARIC Launch<span class="when">เดือน 4</span></h2>
+          <div class="tagline" style="color:#8E6420">ส่งสู่ตลาด — ออกบูธ</div>
+          <div class="txt">พบลูกค้าและนักลงทุนในงานระดับประเทศ · SITE · Techsauce · DigiTech ASEAN</div></div>
       </div>
       <div class="note a-fade" style="--d:900ms;margin-top:14px;padding-left:18px">ลูกค้าที่พบในงานออกบูธ กลายเป็นโจทย์ของรอบถัดไป · ทุกทีมใช้ <b>AI coding agent และ DGX</b> จากส่วนกลาง งบทีมละ ฿100,000 จึงพอ</div>
     </div>
