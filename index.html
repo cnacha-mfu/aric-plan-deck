@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="deck-version" content="2026-10-09.6">
+<meta name="deck-version" content="2026-10-09.7">
 <meta name="description" content="แผนแนวคิดการจัดตั้งศูนย์นวัตกรรมด้านปัญญาประดิษฐ์และหุ่นยนต์ มหาวิทยาลัยแม่ฟ้าหลวง (MFU-ARIC) ระยะที่ 1-2">
 <link rel="icon" type="image/svg+xml" href="aric_logo_mark.svg">
 <title>ARIC Concept Plan</title>
@@ -160,6 +160,26 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
 .layer.off{background:var(--cream2);color:var(--ink2);border:1px solid var(--rule)}
 .layer.off .L{color:var(--mute)}
 
+/* concept slide — robot arm: hardware grey, brain red; signals flow brain -> joints */
+.arm .link{fill:none;stroke:#B9A88E;stroke-linecap:round}
+.arm .joint{fill:#FAF6EE;stroke:#9C8C74;stroke-width:4;transform-box:fill-box;transform-origin:center}
+.arm .wire{fill:none;stroke:#C9A87A;stroke-width:1.5;stroke-dasharray:3 5}
+.arm .sig{fill:none;stroke:#C8102E;stroke-width:4;stroke-linecap:round;opacity:0;stroke-dasharray:18 2000}
+.arm .flash{fill:none;stroke:#C8102E;stroke-width:3;opacity:0}
+.arm .grip{transform-box:view-box;transform-origin:150px 168px}
+.arm .chip{transform-box:fill-box;transform-origin:center}
+@keyframes sig{0%{stroke-dasharray:18 2000;stroke-dashoffset:18;opacity:0}8%{opacity:1}55%{stroke-dashoffset:calc(-1px * var(--L));opacity:1}60%,100%{stroke-dashoffset:calc(-1px * var(--L));opacity:0}}
+@keyframes flash{0%,52%{r:12;opacity:0}58%{r:14;opacity:.9}80%,100%{r:28;opacity:0}}
+@keyframes grip{0%,100%{transform:rotate(0)}50%{transform:rotate(-10deg)}}
+@keyframes think{0%,100%{opacity:1}50%{opacity:.35}}
+.s.play .arm .sig{animation:sig 2.4s linear infinite;animation-delay:calc(1600ms + var(--d))}
+.s.play .arm .flash{animation:flash 2.4s ease-out infinite;animation-delay:calc(1600ms + var(--d))}
+.s.play .arm .grip{animation:grip 2.4s ease-in-out 2.6s infinite}
+.s.play .arm .n1{animation:think 1.2s ease-in-out 1.6s infinite}
+.s.play .arm .n2{animation:think 1.2s ease-in-out 2s infinite}
+.s.play .arm .n3{animation:think 1.2s ease-in-out 2.4s infinite}
+@media (prefers-reduced-motion:reduce){.s.play .arm .sig,.s.play .arm .flash,.s.play .arm .grip,.s.play .arm .n1,.s.play .arm .n2,.s.play .arm .n3{animation:none!important}}
+
 /* ---------- 3 · engine (focal) ---------- */
 .ring .seg{fill:none;stroke-width:30;stroke-linecap:butt}
 .ring .seg{stroke-dasharray:var(--L) 2000}
@@ -305,22 +325,53 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
     <h1 class="t">ARIC คือ<span class="red">ศูนย์สร้างนวัตกรรม AI จากโจทย์จริง</span></h1>
     <div class="sub">เปลี่ยนโจทย์ของอุตสาหกรรมและชุมชน ให้เป็น<b>นวัตกรรมที่มีคนใช้และยอมจ่ายเงิน</b> แล้วต่อยอดเป็นบริษัท</div>
   </div>
-  <div class="body" style="gap:44px">
-    <div style="flex:1.35;display:flex;flex-direction:column">
+  <div class="body" style="gap:40px">
+    <div style="flex:1.5;display:flex;flex-direction:column">
       <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px">
         <div style="font-size:18px;font-weight:600">สร้างสมอง ไม่สร้างมือกล</div>
         <div class="lbl">Physical AI stack</div>
       </div>
-      <div style="display:flex;flex-direction:column-reverse;gap:6px">
+      <div style="display:flex;gap:18px;align-items:flex-end">
+        <svg class="arm" viewBox="0 0 230 420" width="200" height="365" role="img" aria-label="แขนกลสีเทาคือฮาร์ดแวร์ที่ซื้อได้ ส่วนชิปสีแดงคือสมองที่ ARIC สร้าง ส่งสัญญาณไปควบคุมทุกข้อต่อ">
+          <g class="wires a-fade" style="--d:800ms"><path d="M115 84 Q150 110 150 168" class="wire"/><path d="M115 84 Q40 140 68 246" class="wire"/><path d="M115 84 Q215 220 115 352" class="wire"/></g>
+          <!-- hardware: grey, draws in with L1-L2 -->
+          <path class="a-fade" d="M58 404 H172 L160 380 H70 Z" fill="#D8CCB6" style="--d:100ms"/>
+          <path class="link a-dash" d="M115 352 L68 246" stroke-width="20" style="--L:116.0;--d:150ms"/>
+          <path class="link a-dash" d="M68 246 L150 168" stroke-width="15" style="--L:113.2;--d:300ms"/>
+          <g class="grip">
+            <path class="link" d="M150 168 l26 -12" stroke-width="6"/>
+            <path class="link" d="M150 168 l24 14" stroke-width="6"/>
+          </g>
+          <circle class="flash" cx="150" cy="168" r="20" style="--d:0ms"/><circle class="flash" cx="68" cy="246" r="20" style="--d:400ms"/><circle class="flash" cx="115" cy="352" r="20" style="--d:800ms"/>
+          <circle class="joint a-pop" cx="115" cy="352" r="17" style="--d:200ms"/>
+          <circle class="joint a-pop" cx="68" cy="246" r="13" style="--d:330ms"/>
+          <circle class="joint a-pop" cx="150" cy="168" r="10" style="--d:450ms"/>
+          <g class="a-pop" style="--d:500ms"><circle cx="178" cy="150" r="9" fill="#4A3F33"/><circle cx="178" cy="150" r="3.5" fill="#E4B04A"/></g>
+          <!-- the brain: red, arrives with L3-L4 -->
+          <g class="chip a-focus" style="--d:700ms">
+            <g stroke="#93433F" stroke-width="3" stroke-linecap="round">
+              <path d="M95 30 v-8 M115 30 v-8 M135 30 v-8 M95 90 v8 M135 90 v8 M75 46 h-8 M75 66 h-8 M155 46 h8 M155 66 h8"/>
+            </g>
+            <rect x="75" y="30" width="80" height="60" rx="10" fill="#7A1C1C"/>
+            <g class="nn" stroke="#F3D48A" stroke-width="2" fill="none"><path d="M96 70 L115 48 L134 70 M96 70 H134"/></g>
+            <g fill="#E4B04A"><circle class="n1" cx="96" cy="70" r="4"/><circle class="n2" cx="115" cy="48" r="4.5"/><circle class="n3" cx="134" cy="70" r="4"/></g>
+          </g>
+          <g><path d="M115 84 Q150 110 150 168" class="sig" style="--L:94.6;--d:0ms"/><path d="M115 84 Q40 140 68 246" class="sig" style="--L:180.6;--d:400ms"/><path d="M115 84 Q215 220 115 352" class="sig" style="--L:291.1;--d:800ms"/></g>
+        </svg>
+        <div style="flex:1;min-width:0">
+        <div style="display:flex;flex-direction:column-reverse;gap:6px">
         <div class="layer off a-slide" style="--d:100ms"><div class="L">L1</div><div style="flex:1"><div class="nm">กลไกและการผลิต</div><div class="ex">หุ่นยนต์ · มอเตอร์ · แขนกล · โดรน</div></div><div class="lbl">จีนครองตลาด</div></div>
         <div class="layer off a-slide" style="--d:250ms"><div class="L">L2</div><div style="flex:1"><div class="nm">เซนเซอร์ การประมวลผล และข้อมูล</div><div class="ex">กล้อง · เซนเซอร์ · หน่วยประมวลผล · คลาวด์</div></div><div class="lbl">ผู้ผลิตระดับโลก</div></div>
         <div class="layer on2 a-slide" style="--d:550ms"><div class="L">L3</div><div style="flex:1"><div class="nm">การรับรู้ การวางแผน และการควบคุม</div><div class="ex">computer vision · การนำทาง · โมเดลภาษา</div></div><span class="chip g a-pop" style="--d:1000ms">ARIC</span></div>
         <div class="layer on1 a-slide" style="--d:700ms"><div class="L">L4</div><div style="flex:1"><div class="nm">การประยุกต์และปัญญาเฉพาะบริบท</div><div class="ex">โมเดลเฉพาะโจทย์ · ภาษาและข้อมูลไทย · กฎระเบียบ</div></div><span class="chip g a-pop" style="--d:1150ms">ARIC</span></div>
       </div>
+        <div class="note a-fade" style="margin-top:10px;text-align:right;--d:1400ms">มือกลซื้อได้ · <b class="red">สมองคือสิ่งที่ ARIC สร้าง</b></div>
+        </div>
+      </div>
       <div class="txt a-fade" style="margin-top:auto;--d:1300ms">ฮาร์ดแวร์ถูกห่วงโซ่อุปทานจีนครองแล้ว แต่ชั้นที่ต้องเข้าใจ<b>ภาษา ข้อมูล และหน้างานของไทย</b>ยังว่าง — และปรับตามเทคโนโลยีได้เร็ว</div>
     </div>
 
-    <div style="flex:.8;display:flex;flex-direction:column;justify-content:space-between;border-left:1px solid var(--rule);padding-left:40px">
+    <div style="flex:.72;display:flex;flex-direction:column;justify-content:space-between;border-left:1px solid var(--rule);padding-left:34px">
       <div style="font-size:18px;font-weight:600">ทำไมต้องเริ่มตอนนี้</div>
       <div class="a-rise" style="--d:300ms">
         <div class="num red" style="font-size:52px">$<span data-count="15.7" data-dec="1">15.7</span>T</div>
