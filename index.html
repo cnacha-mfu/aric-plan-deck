@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="deck-version" content="2026-10-09.5">
+<meta name="deck-version" content="2026-10-09.6">
 <meta name="description" content="แผนแนวคิดการจัดตั้งศูนย์นวัตกรรมด้านปัญญาประดิษฐ์และหุ่นยนต์ มหาวิทยาลัยแม่ฟ้าหลวง (MFU-ARIC) ระยะที่ 1-2">
 <link rel="icon" type="image/svg+xml" href="aric_logo_mark.svg">
 <title>ARIC Concept Plan</title>
@@ -121,6 +121,11 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
   linear-gradient(0deg,rgba(20,5,5,.88) 0%,rgba(20,5,5,0) 32%)}
 .s.cover .content{position:relative;z-index:1;display:flex;flex-direction:column;height:100%}
 .s.cover .pg{color:rgba(250,246,238,.5)}
+.s.cover .flow{display:flex;align-items:center;gap:12px;margin-top:16px}
+.s.cover .step{display:inline-flex;align-items:baseline;gap:9px;padding:7px 16px 8px;border:1px solid rgba(242,196,106,.4);border-radius:999px;background:rgba(24,6,6,.35)}
+.s.cover .step i{width:9px;height:9px;border-radius:50%;align-self:center}
+.s.cover .step b{font-size:19px;font-weight:600;color:#FFF6E6;letter-spacing:.01em}
+.s.cover .step span{font-size:15px;font-weight:300;color:rgba(250,246,238,.82)}
 .s.vision .bg{filter:saturate(.75) brightness(.42)}
 .s.vision .shade{background:radial-gradient(120% 95% at 78% 50%,rgba(74,20,20,.35) 0%,rgba(42,11,11,.80) 55%,rgba(24,7,7,.94) 100%)}
 @keyframes kenburns{from{transform:scale(1.16) translate(1.5%,1%)}to{transform:scale(1)}}
@@ -273,15 +278,22 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
       </div>
       <div class="a-rise" style="--d:2300ms;margin-top:30px">
         <div style="font-size:36px;font-weight:500;line-height:1.3">แผนแนวคิดการจัดตั้งและดำเนินงาน <span style="color:#F2C46A">ระยะที่ ๑–๒</span></div>
-        <div style="font-size:19px;font-weight:300;margin-top:10px;color:rgba(250,246,238,.82)">ศูนย์สร้างนวัตกรรม AI จากโจทย์จริง — <b style="font-weight:500;color:#FFF6E6">แฮกกาธอน → MVP → ออกบูธ</b> หมุนปีละ ๓ รอบ</div>
+        <div style="font-size:19px;font-weight:300;margin-top:8px;color:rgba(250,246,238,.82)">ศูนย์สร้างนวัตกรรม AI จากโจทย์จริง — หมุนปีละ ๓ รอบ รอบละ ๔ เดือน</div>
+        <div class="flow">
+          <span class="step a-rise" style="--d:2500ms"><i style="background:#C8102E"></i><b>Spark</b><span>จุดประกายไอเดีย</span></span>
+          <svg class="arr a-fade" style="--d:2650ms" width="26" height="14" viewBox="0 0 26 14" aria-hidden="true"><path d="M1 7h22M17 1l6 6-6 6" fill="none" stroke="#F2C46A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="step a-rise" style="--d:2750ms"><i style="background:#D9645E"></i><b>Forge</b><span>หลอมไอเดียเป็นของจริง</span></span>
+          <svg class="arr a-fade" style="--d:2900ms" width="26" height="14" viewBox="0 0 26 14" aria-hidden="true"><path d="M1 7h22M17 1l6 6-6 6" fill="none" stroke="#F2C46A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="step a-rise" style="--d:3000ms"><i style="background:#E4B04A"></i><b>Launch</b><span>ส่งสู่ตลาด</span></span>
+        </div>
       </div>
     </div>
 
     <div style="display:flex;border-top:1px solid rgba(250,246,238,.25);padding-top:18px">
-      <div class="stat a-rise" style="--d:2500ms"><div class="lbl">งบระยะที่ ๑ · ๒ ปี</div><div class="num" style="font-size:32px;margin-top:8px">฿<span data-count="6.19" data-dec="2">6.19</span><span style="font-size:15px;font-weight:400"> ล้าน</span></div></div>
-      <div class="stat a-rise" style="--d:2580ms"><div class="lbl">ผลงานใน ๒ ปี</div><div class="num" style="font-size:32px;margin-top:8px"><span data-count="10">10</span><span style="font-size:15px;font-weight:400"> MVP</span></div></div>
-      <div class="stat a-rise" style="--d:2660ms"><div class="lbl">หุ้นของมูลนิธิในทุกบริษัท</div><div class="num" style="font-size:32px;margin-top:8px;color:#F2C46A"><span data-count="15">15</span><span style="font-size:15px;font-weight:400">%</span></div></div>
-      <div class="stat a-rise" style="--d:2740ms"><div class="lbl">สาขาเป้าหมาย</div><div style="font-size:17px;font-weight:500;margin-top:8px;line-height:1.35">สุขภาพ &amp; สังคมสูงวัย<br><span style="color:rgba(250,246,238,.7);font-weight:300">เมืองอัจฉริยะ</span></div></div>
+      <div class="stat a-rise" style="--d:3200ms"><div class="lbl">งบระยะที่ ๑ · ๒ ปี</div><div class="num" style="font-size:32px;margin-top:8px">฿<span data-count="6.19" data-dec="2">6.19</span><span style="font-size:15px;font-weight:400"> ล้าน</span></div></div>
+      <div class="stat a-rise" style="--d:3280ms"><div class="lbl">ผลงานใน ๒ ปี</div><div class="num" style="font-size:32px;margin-top:8px"><span data-count="10">10</span><span style="font-size:15px;font-weight:400"> MVP</span></div></div>
+      <div class="stat a-rise" style="--d:3360ms"><div class="lbl">หุ้นของมูลนิธิในทุกบริษัท</div><div class="num" style="font-size:32px;margin-top:8px;color:#F2C46A"><span data-count="15">15</span><span style="font-size:15px;font-weight:400">%</span></div></div>
+      <div class="stat a-rise" style="--d:3440ms"><div class="lbl">สาขาเป้าหมาย</div><div style="font-size:17px;font-weight:500;margin-top:8px;line-height:1.35">สุขภาพ &amp; สังคมสูงวัย<br><span style="color:rgba(250,246,238,.7);font-weight:300">เมืองอัจฉริยะ</span></div></div>
     </div>
   </div>
   <div class="pg">01</div>
