@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="deck-version" content="2026-10-09.1">
+<meta name="deck-version" content="2026-10-09.2">
 <meta name="description" content="แผนแนวคิดการจัดตั้งศูนย์นวัตกรรมด้านปัญญาประดิษฐ์และหุ่นยนต์ มหาวิทยาลัยแม่ฟ้าหลวง (MFU-ARIC) ระยะที่ 1-2">
 <link rel="icon" type="image/svg+xml" href="aric_logo_mark.svg">
 <title>ARIC Concept Plan</title>
@@ -85,7 +85,7 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
 @keyframes wipeUp{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0 0 0 0)}}
 @keyframes focusIn{from{opacity:0;filter:blur(10px);transform:scale(.96)}to{opacity:1;filter:none;transform:none}}
 @keyframes pop{0%{opacity:0;transform:scale(.6)}70%{opacity:1;transform:scale(1.06)}100%{transform:scale(1)}}
-@keyframes dash{from{stroke-dasharray:0 2000}to{stroke-dasharray:var(--L) 2000}}
+@keyframes dash{from{stroke-dasharray:0 2000;opacity:0}4%{opacity:1}to{stroke-dasharray:var(--L) 2000}}
 .s.play .a-rise{animation:rise .7s var(--ease) both;animation-delay:var(--d,0ms)}
 .s.play .a-slide{animation:slideIn .7s var(--ease) both;animation-delay:var(--d,0ms)}
 .s.play .a-fade{animation:fade .6s ease both;animation-delay:var(--d,0ms)}
@@ -100,12 +100,36 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
 
 /* ---------- 1 · cover ---------- */
 .mark .ridge path{stroke-dasharray:var(--L) 2000}
-.s.play .mark .range{transform-origin:256px 400px;animation:growY 1s var(--ease) both}
-.s.play .mark .ridge path{animation:dash .9s var(--ease) both;animation-delay:calc(700ms + var(--d,0ms))}
-.s.play .mark .node{transform-box:fill-box;transform-origin:center;animation:pop .45s var(--ease) both;animation-delay:calc(1100ms + var(--d,0ms))}
-.s.play .mark .sun{transform-box:fill-box;transform-origin:center;animation:focusIn 1s var(--ease) both;animation-delay:400ms}
+.s.play .mark .range{transform-box:view-box;transform-origin:256px 400px;animation:growY 1.3s var(--ease) both;animation-delay:200ms}
+.s.play .mark .ridge path{animation:dash 1.2s var(--ease) both;animation-delay:calc(1000ms + 2 * var(--d,0ms))}
+.s.play .mark .node{transform-box:fill-box;transform-origin:center;animation:pop .5s var(--ease) both;animation-delay:1900ms}
+.s.play .mark g:nth-of-type(3) .node:nth-child(2),.s.play .mark g:nth-of-type(4) .node:nth-child(2){animation-delay:2050ms}
+.s.play .mark g:nth-of-type(3) .node:nth-child(3),.s.play .mark g:nth-of-type(4) .node:nth-child(3){animation-delay:2200ms}
+.s.play .mark .sun{transform-box:fill-box;transform-origin:center;animation:focusIn 1.2s var(--ease) both;animation-delay:700ms}
 .stat{flex:1;padding-left:22px;border-left:1px solid var(--rule)}
 .stat:first-child{padding-left:0;border-left:0}
+
+
+/* ---------- photo slides (cover + vision) ---------- */
+.s.cover{background:#2A0B0B;color:var(--cream)}
+.s.cover .lbl{color:rgba(250,246,238,.72)}
+.s.cover .stat{border-left-color:rgba(250,246,238,.22)}
+.s .bg{position:absolute;inset:-2%;background:url(cover.jpg) 70% 55%/cover no-repeat}
+.s .shade{position:absolute;inset:0}
+.s.cover .shade{background:
+  linear-gradient(90deg,rgba(24,6,6,.93) 0%,rgba(38,9,9,.80) 36%,rgba(38,9,9,.30) 62%,rgba(38,9,9,0) 82%),
+  linear-gradient(0deg,rgba(20,5,5,.88) 0%,rgba(20,5,5,0) 32%)}
+.s.cover .content{position:relative;z-index:1;display:flex;flex-direction:column;height:100%}
+.s.cover .pg{color:rgba(250,246,238,.5)}
+.s.vision .bg{filter:saturate(.75) brightness(.42)}
+.s.vision .shade{background:radial-gradient(120% 95% at 78% 50%,rgba(74,20,20,.35) 0%,rgba(42,11,11,.80) 55%,rgba(24,7,7,.94) 100%)}
+@keyframes kenburns{from{transform:scale(1.16) translate(1.5%,1%)}to{transform:scale(1)}}
+.s.play .bg{animation:kenburns 11s cubic-bezier(.2,.6,.2,1) both}
+
+/* logo build — slower so the room can follow it */
+.mark .spark path{fill:none;stroke:#FFF6DC;stroke-width:7;stroke-linecap:round;opacity:0}
+@keyframes spark{0%{stroke-dasharray:22 2000;stroke-dashoffset:22;opacity:0}12%{opacity:1}88%{opacity:1}100%{stroke-dasharray:22 2000;stroke-dashoffset:calc(-1px * var(--L));opacity:0}}
+.s.play .mark .spark path{animation:spark 1.8s linear infinite;animation-delay:calc(2800ms + var(--d,0ms))}
 
 /* ---------- 2 · concept stack ---------- */
 .layer{display:flex;align-items:center;gap:16px;padding:14px 18px;border-radius:3px}
@@ -183,7 +207,7 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
 
 @media (prefers-reduced-motion:reduce){
   .s.play [class*="a-"],.s.play .mark *,.s.play .ring .seg,.s.play .stage{animation:fade .3s ease both !important}
-  .s.play .ring .orbit,.s.play .ring .halo{animation:none !important}
+  .s.play .ring .orbit,.s.play .ring .halo,.s.play .mark .spark path,.s.play .bg{animation:none !important}
   .s.play .ring .orbit{opacity:1}
   .s.play .stage{opacity:1}
 }
@@ -194,24 +218,21 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
 <div id="viewport"><div id="stage">
 
 <!-- ═══════════ 1 · COVER ═══════════ -->
-<section class="s on" data-cap="ปก · Concept Plan">
-  <div class="a-fade" style="display:flex;justify-content:space-between;align-items:flex-start;--d:0ms">
-    <div>
-      <div style="font-size:16px;font-weight:500">มหาวิทยาลัยแม่ฟ้าหลวง</div>
-      <div class="lbl">Mae Fah Luang University</div>
+<section class="s on cover" data-cap="ปก · Concept Plan">
+  <div class="bg" aria-hidden="true"></div>
+  <div class="shade" aria-hidden="true"></div>
+  <div class="content">
+    <div class="a-fade" style="display:flex;justify-content:space-between;align-items:flex-start;--d:0ms">
+      <div><div style="font-size:16px;font-weight:500">มหาวิทยาลัยแม่ฟ้าหลวง</div><div class="lbl">Mae Fah Luang University</div></div>
+      <div style="text-align:right"><div style="font-size:16px;font-weight:500">สำนักวิชาเทคโนโลยีดิจิทัลประยุกต์</div><div class="lbl">School of Applied Digital Technology</div></div>
     </div>
-    <div style="text-align:right">
-      <div style="font-size:16px;font-weight:500">สำนักวิชาเทคโนโลยีดิจิทัลประยุกต์</div>
-      <div class="lbl">School of Applied Digital Technology</div>
-    </div>
-  </div>
 
-  <div style="flex:1;display:flex;flex-direction:column;justify-content:center">
-    <div style="display:flex;align-items:center;gap:28px">
-      <svg class="mark" viewBox="40 90 450 320" width="190" height="135" aria-hidden="true">
-        <defs><linearGradient id="rangeA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C8102E"/><stop offset="1" stop-color="#7A0C1E"/></linearGradient></defs>
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center">
+      <div style="display:flex;align-items:flex-end;gap:30px">
+      <svg class="mark" viewBox="40 90 450 320" width="380" height="270" aria-hidden="true">
+        <defs><linearGradient id="rangeCover" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E63A55"/><stop offset="1" stop-color="#A3122C"/></linearGradient></defs>
         <circle class="sun" cx="418" cy="118" r="30" fill="#E4B04A"/>
-        <path class="range" d="M56 400 L168 192 L244 282 L320 140 L456 400 Z" fill="url(#rangeA)"/>
+        <path class="range" d="M56 400 L168 192 L244 282 L320 140 L456 400 Z" fill="url(#rangeCover)"/>
         <g class="ridge" stroke="#F3D48A" stroke-width="5" stroke-linecap="round" fill="none">
           <path d="M168 192 L244 282 L320 140" style="--L:325;--d:0ms"/>
           <path d="M320 140 L300 236 L244 282" style="--L:170;--d:120ms"/>
@@ -219,26 +240,34 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
           <path d="M244 282 L232 352 L352 320" style="--L:196;--d:260ms"/>
           <path d="M168 192 L232 352" opacity=".6" style="--L:173;--d:320ms"/>
         </g>
+        <g class="spark">
+          <path d="M168 192 L244 282 L320 140" style="--L:325;--d:0ms"/>
+          <path d="M320 140 L300 236 L244 282" style="--L:170;--d:700ms"/>
+          <path d="M300 236 L352 320" style="--L:100;--d:1100ms"/>
+          <path d="M244 282 L232 352 L352 320" style="--L:196;--d:400ms"/>
+          <path d="M168 192 L232 352" style="--L:173;--d:1500ms"/>
+        </g>
         <g fill="#E4B04A"><circle class="node" cx="300" cy="236" r="8"/><circle class="node" cx="232" cy="352" r="8"/><circle class="node" cx="352" cy="320" r="8"/></g>
         <g fill="#FFFFFF" stroke="#E4B04A" stroke-width="5"><circle class="node" cx="168" cy="192" r="12"/><circle class="node" cx="244" cy="282" r="10"/><circle class="node" cx="320" cy="140" r="13"/></g>
-        <path d="M40 400 H472" stroke="#7A0C1E" stroke-width="10" stroke-linecap="round"/>
+        <path d="M40 400 H472" stroke="#E4B04A" stroke-width="10" stroke-linecap="round"/>
       </svg>
-      <div>
-        <div class="num red a-wipe" style="font-size:118px;--d:300ms">ARIC</div>
-        <div class="lbl a-fade" style="font-size:15px;margin-top:6px;--d:800ms">AI &amp; Robotics Innovation Center</div>
+        <div style="padding-bottom:14px">
+          <div class="num a-wipe" style="font-size:150px;color:#FFF6E6;--d:1700ms">ARIC</div>
+          <div class="lbl a-fade" style="font-size:17px;margin-top:10px;letter-spacing:.06em;--d:2200ms">AI &amp; Robotics Innovation Center</div>
+        </div>
+      </div>
+      <div class="a-rise" style="--d:2300ms;margin-top:30px">
+        <div style="font-size:36px;font-weight:500;line-height:1.3">แผนแนวคิดการจัดตั้งและดำเนินงาน <span style="color:#F2C46A">ระยะที่ ๑–๒</span></div>
+        <div style="font-size:19px;font-weight:300;margin-top:10px;color:rgba(250,246,238,.82)">ศูนย์สร้างนวัตกรรม AI จากโจทย์จริง — <b style="font-weight:500;color:#FFF6E6">แฮกกาธอน → MVP → ออกบูธ</b> หมุนปีละ ๓ รอบ</div>
       </div>
     </div>
-    <div class="a-rise" style="--d:900ms;margin-top:34px">
-      <div style="font-size:34px;font-weight:500;line-height:1.3">แผนแนวคิดการจัดตั้งและดำเนินงาน <span class="red">ระยะที่ ๑–๒</span></div>
-      <div class="sub" style="font-size:19px;margin-top:10px">ศูนย์สร้างนวัตกรรม AI จากโจทย์จริง — <b>แฮกกาธอน → MVP → ออกบูธ</b> หมุนปีละ ๓ รอบ</div>
-    </div>
-  </div>
 
-  <div style="display:flex;border-top:1px solid var(--rule);padding-top:18px">
-    <div class="stat a-rise" style="--d:1100ms"><div class="lbl">งบระยะที่ ๑ · ๒ ปี</div><div class="num" style="font-size:32px;margin-top:8px">฿<span data-count="6.19" data-dec="2">6.19</span><span style="font-size:15px;font-weight:400"> ล้าน</span></div></div>
-    <div class="stat a-rise" style="--d:1180ms"><div class="lbl">ผลงานใน ๒ ปี</div><div class="num" style="font-size:32px;margin-top:8px"><span data-count="10">10</span><span style="font-size:15px;font-weight:400"> MVP</span></div></div>
-    <div class="stat a-rise" style="--d:1260ms"><div class="lbl">หุ้นของมูลนิธิในทุกบริษัท</div><div class="num red" style="font-size:32px;margin-top:8px"><span data-count="15">15</span><span style="font-size:15px;font-weight:400">%</span></div></div>
-    <div class="stat a-rise" style="--d:1340ms"><div class="lbl">สาขาเป้าหมาย</div><div style="font-size:17px;font-weight:500;margin-top:8px;line-height:1.35">สุขภาพ &amp; สังคมสูงวัย<br><span style="color:var(--mute);font-weight:300">เมืองอัจฉริยะ</span></div></div>
+    <div style="display:flex;border-top:1px solid rgba(250,246,238,.25);padding-top:18px">
+      <div class="stat a-rise" style="--d:2500ms"><div class="lbl">งบระยะที่ ๑ · ๒ ปี</div><div class="num" style="font-size:32px;margin-top:8px">฿<span data-count="6.19" data-dec="2">6.19</span><span style="font-size:15px;font-weight:400"> ล้าน</span></div></div>
+      <div class="stat a-rise" style="--d:2580ms"><div class="lbl">ผลงานใน ๒ ปี</div><div class="num" style="font-size:32px;margin-top:8px"><span data-count="10">10</span><span style="font-size:15px;font-weight:400"> MVP</span></div></div>
+      <div class="stat a-rise" style="--d:2660ms"><div class="lbl">หุ้นของมูลนิธิในทุกบริษัท</div><div class="num" style="font-size:32px;margin-top:8px;color:#F2C46A"><span data-count="15">15</span><span style="font-size:15px;font-weight:400">%</span></div></div>
+      <div class="stat a-rise" style="--d:2740ms"><div class="lbl">สาขาเป้าหมาย</div><div style="font-size:17px;font-weight:500;margin-top:8px;line-height:1.35">สุขภาพ &amp; สังคมสูงวัย<br><span style="color:rgba(250,246,238,.7);font-weight:300">เมืองอัจฉริยะ</span></div></div>
+    </div>
   </div>
   <div class="pg">01</div>
 </section>
@@ -577,7 +606,9 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
 
 <!-- ═══════════ 10 · VISION — closing statement ═══════════ -->
 <section class="s vision" data-cap="ภาพใหญ่ · Northern Digital Industry">
-  <div class="body" style="gap:30px;align-items:center">
+  <div class="bg" aria-hidden="true"></div>
+  <div class="shade" aria-hidden="true"></div>
+  <div class="body" style="gap:30px;align-items:center;position:relative">
     <div style="flex:1.05;display:flex;flex-direction:column">
       <h1 class="a-wipe" style="font-size:50px;font-weight:600;line-height:1.22;margin:0;letter-spacing:-.01em;--d:100ms">ARIC คือพาหนะ<br>สร้าง<span style="color:#E4B04A">อุตสาหกรรมดิจิทัล</span><br>ของภาคเหนือตอนบน</h1>
       <div class="a-fade" style="font-size:18px;font-weight:300;line-height:1.55;color:rgba(250,246,238,.78);margin:18px 0 22px;--d:600ms">ไม่ใช่ศูนย์วิจัยอีกแห่ง — แต่เป็นเครื่องยนต์ที่สร้าง<b style="color:#FFF0D2;font-weight:500">คน บริษัท และลูกค้า</b>ให้ภูมิภาค ทุก ๔ เดือน</div>
@@ -641,24 +672,31 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
     <div style="text-align:right"><div style="font-size:16px;font-weight:500">สำนักวิชาเทคโนโลยีดิจิทัลประยุกต์</div><div class="lbl">School of Applied Digital Technology</div></div>
   </div>
   <div style="flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">
-    <svg class="mark" viewBox="40 90 450 320" width="150" height="107" aria-hidden="true">
-      <defs><linearGradient id="rangeB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C8102E"/><stop offset="1" stop-color="#7A0C1E"/></linearGradient></defs>
-      <circle class="sun" cx="418" cy="118" r="30" fill="#E4B04A"/>
-      <path class="range" d="M56 400 L168 192 L244 282 L320 140 L456 400 Z" fill="url(#rangeB)"/>
-      <g class="ridge" stroke="#F3D48A" stroke-width="5" stroke-linecap="round" fill="none">
-        <path d="M168 192 L244 282 L320 140" style="--L:325;--d:0ms"/>
-        <path d="M320 140 L300 236 L244 282" style="--L:170;--d:120ms"/>
-        <path d="M300 236 L352 320" style="--L:100;--d:200ms"/>
-        <path d="M244 282 L232 352 L352 320" style="--L:196;--d:260ms"/>
-        <path d="M168 192 L232 352" opacity=".6" style="--L:173;--d:320ms"/>
-      </g>
-      <g fill="#E4B04A"><circle class="node" cx="300" cy="236" r="8"/><circle class="node" cx="232" cy="352" r="8"/><circle class="node" cx="352" cy="320" r="8"/></g>
-      <g fill="#FFFFFF" stroke="#E4B04A" stroke-width="5"><circle class="node" cx="168" cy="192" r="12"/><circle class="node" cx="244" cy="282" r="10"/><circle class="node" cx="320" cy="140" r="13"/></g>
-      <path d="M40 400 H472" stroke="#7A0C1E" stroke-width="10" stroke-linecap="round"/>
-    </svg>
-    <div class="red a-wipe" style="font-size:96px;font-weight:600;line-height:1.1;margin-top:26px;--d:600ms">ถาม – ตอบ</div>
-    <div class="a-growX" style="height:2px;background:var(--red);width:420px;margin:24px 0 22px;transform-origin:center;--d:900ms"></div>
-    <div class="sub a-fade" style="font-size:20px;max-width:760px;line-height:1.55;--d:1100ms">ขอบคุณสำหรับการรับฟัง — ยินดีรับข้อซักถามและข้อเสนอแนะ<br>เพื่อปรับแผนการจัดตั้ง <b>MFU-ARIC</b> ก่อนเสนอขออนุมัติ</div>
+    <svg class="mark" viewBox="40 90 450 320" width="170" height="121" aria-hidden="true">
+        <defs><linearGradient id="rangeQA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C8102E"/><stop offset="1" stop-color="#7A0C1E"/></linearGradient></defs>
+        <circle class="sun" cx="418" cy="118" r="30" fill="#E4B04A"/>
+        <path class="range" d="M56 400 L168 192 L244 282 L320 140 L456 400 Z" fill="url(#rangeQA)"/>
+        <g class="ridge" stroke="#F3D48A" stroke-width="5" stroke-linecap="round" fill="none">
+          <path d="M168 192 L244 282 L320 140" style="--L:325;--d:0ms"/>
+          <path d="M320 140 L300 236 L244 282" style="--L:170;--d:120ms"/>
+          <path d="M300 236 L352 320" style="--L:100;--d:200ms"/>
+          <path d="M244 282 L232 352 L352 320" style="--L:196;--d:260ms"/>
+          <path d="M168 192 L232 352" opacity=".6" style="--L:173;--d:320ms"/>
+        </g>
+        <g class="spark">
+          <path d="M168 192 L244 282 L320 140" style="--L:325;--d:0ms"/>
+          <path d="M320 140 L300 236 L244 282" style="--L:170;--d:700ms"/>
+          <path d="M300 236 L352 320" style="--L:100;--d:1100ms"/>
+          <path d="M244 282 L232 352 L352 320" style="--L:196;--d:400ms"/>
+          <path d="M168 192 L232 352" style="--L:173;--d:1500ms"/>
+        </g>
+        <g fill="#E4B04A"><circle class="node" cx="300" cy="236" r="8"/><circle class="node" cx="232" cy="352" r="8"/><circle class="node" cx="352" cy="320" r="8"/></g>
+        <g fill="#FFFFFF" stroke="#E4B04A" stroke-width="5"><circle class="node" cx="168" cy="192" r="12"/><circle class="node" cx="244" cy="282" r="10"/><circle class="node" cx="320" cy="140" r="13"/></g>
+        <path d="M40 400 H472" stroke="#7A0C1E" stroke-width="10" stroke-linecap="round"/>
+      </svg>
+    <div class="red a-wipe" style="font-size:96px;font-weight:600;line-height:1.1;margin-top:26px;--d:1500ms">ถาม – ตอบ</div>
+    <div class="a-growX" style="height:2px;background:var(--red);width:420px;margin:24px 0 22px;transform-origin:center;--d:1900ms"></div>
+    <div class="sub a-fade" style="font-size:20px;max-width:760px;line-height:1.55;--d:2100ms">ขอบคุณสำหรับการรับฟัง — ยินดีรับข้อซักถามและข้อเสนอแนะ<br>เพื่อปรับแผนการจัดตั้ง <b>MFU-ARIC</b> ก่อนเสนอขออนุมัติ</div>
   </div>
   <div style="display:flex;justify-content:center;border-top:1px solid var(--rule);padding-top:14px"><div class="note">ภาคผนวก — ทำไม MFii จึงรองรับแผนนี้แทนไม่ได้</div></div>
   <div class="pg">11</div>
