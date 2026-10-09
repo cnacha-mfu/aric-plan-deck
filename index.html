@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="deck-version" content="2026-10-09.4">
+<meta name="deck-version" content="2026-10-09.5">
 <meta name="description" content="แผนแนวคิดการจัดตั้งศูนย์นวัตกรรมด้านปัญญาประดิษฐ์และหุ่นยนต์ มหาวิทยาลัยแม่ฟ้าหลวง (MFU-ARIC) ระยะที่ 1-2">
 <link rel="icon" type="image/svg+xml" href="aric_logo_mark.svg">
 <title>ARIC Concept Plan</title>
@@ -159,28 +159,28 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
 .ring .seg{fill:none;stroke-width:30;stroke-linecap:butt}
 .ring .seg{stroke-dasharray:var(--L) 2000}
 @keyframes spin{to{transform:rotate(360deg)}}
-@keyframes litA{0%,24%{opacity:1}25.5%,98.5%{opacity:.28}100%{opacity:1}}
-@keyframes litB{0%,24%{opacity:.28}25.5%,74%{opacity:1}75.5%,100%{opacity:.28}}
-@keyframes litC{0%,74%{opacity:.28}75.5%,98.5%{opacity:1}100%{opacity:.28}}
+@keyframes litA{0%,8%{opacity:1}8.6%,99.4%{opacity:.25}100%{opacity:1}}
+@keyframes litB{0%,8%{opacity:.25}8.6%,24.6%{opacity:1}25.2%,100%{opacity:.25}}
+@keyframes litC{0%,24.6%{opacity:.25}25.2%,33%{opacity:1}33.6%,100%{opacity:.25}}
 @keyframes rowA{0%,24%{opacity:1;background:#fff;box-shadow:0 6px 20px rgba(80,0,0,.10)}25.5%,98.5%{opacity:.5;background:transparent;box-shadow:none}100%{opacity:1;background:#fff;box-shadow:0 6px 20px rgba(80,0,0,.10)}}
 @keyframes rowB{0%,24%{opacity:.5;background:transparent;box-shadow:none}25.5%,74%{opacity:1;background:#fff;box-shadow:0 6px 20px rgba(80,0,0,.10)}75.5%,100%{opacity:.5;background:transparent;box-shadow:none}}
 @keyframes rowC{0%,74%{opacity:.5;background:transparent;box-shadow:none}75.5%,98.5%{opacity:1;background:#fff;box-shadow:0 6px 20px rgba(80,0,0,.10)}100%{opacity:.5;background:transparent;box-shadow:none}}
 @keyframes halo{0%{r:13;opacity:.55}100%{r:30;opacity:0}}
 .ring .orbit{transform-box:view-box;transform-origin:230px 230px}
 .s.play .ring .seg{animation:dash .8s var(--ease) both;animation-delay:var(--d)}
-.s.play .ring .seg.a{animation:dash .8s var(--ease) both 0ms,litA 12s linear 1.2s infinite}
-.s.play .ring .seg.b{animation:dash .8s var(--ease) both 250ms,litB 12s linear 1.2s infinite}
-.s.play .ring .seg.c{animation:dash .8s var(--ease) both 500ms,litC 12s linear 1.2s infinite}
-.s.play .ring .orbit{animation:fade .4s ease both 1s,spin 12s linear 1.2s infinite}
+.s.play .ring .seg.a{animation:dash .7s var(--ease) both var(--d),litA 18s linear var(--lit) infinite}
+.s.play .ring .seg.b{animation:dash .7s var(--ease) both var(--d),litB 18s linear var(--lit) infinite}
+.s.play .ring .seg.c{animation:dash .7s var(--ease) both var(--d),litC 18s linear var(--lit) infinite}
+.s.play .ring .orbit{animation:fade .4s ease both 1s,spin 18s linear 1.2s infinite}
 .s.play .ring .halo{animation:halo 1.6s ease-out 1.2s infinite}
 .stage{display:flex;gap:16px;padding:14px 18px;border-radius:4px}
 .stage .dot{width:14px;height:14px;border-radius:50%;flex:none;margin-top:6px}
 .stage h2{margin:0;font-size:20px;font-weight:600}
 .stage .tagline{font-size:15.5px;font-weight:500;margin:1px 0 3px}
 .stage .when{font-family:var(--mono);font-size:12px;color:var(--mute);margin-left:8px;font-weight:400}
-.s.play .stage.a{animation:rise .6s var(--ease) both 200ms,rowA 12s linear 1.2s infinite}
-.s.play .stage.b{animation:rise .6s var(--ease) both 350ms,rowB 12s linear 1.2s infinite}
-.s.play .stage.c{animation:rise .6s var(--ease) both 500ms,rowC 12s linear 1.2s infinite}
+.s.play .stage.a{animation:rise .6s var(--ease) both 200ms,rowA 6s linear 1.2s infinite}
+.s.play .stage.b{animation:rise .6s var(--ease) both 350ms,rowB 6s linear 1.2s infinite}
+.s.play .stage.c{animation:rise .6s var(--ease) both 500ms,rowC 6s linear 1.2s infinite}
 .split{display:flex;height:8px;gap:2px;margin-top:8px;max-width:340px}
 
 /* ---------- 4 · org ---------- */
@@ -336,37 +336,42 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
     <div class="sub">วัดผลที่<b>มีคนใช้จริงกี่ตัว และมีคนจ่ายเงินกี่ตัว</b> ทุกรอบจึงจบที่ลูกค้า ไม่ใช่จบที่โค้ด</div>
   </div>
   <div class="body" style="gap:40px;align-items:center">
-    <svg class="ring" viewBox="0 0 460 460" width="430" height="430" style="flex:none" role="img" aria-label="วงจรหนึ่งรอบ 4 เดือน: ARIC Spark แฮกกาธอน เดือนที่ 1, ARIC Forge รอบ MVP เดือนที่ 2 ถึง 3, ARIC Launch ออกบูธ เดือนที่ 4">
+    <svg class="ring" viewBox="0 0 460 460" width="430" height="430" style="flex:none" role="img" aria-label="หนึ่งปีมี 3 รอบ รอบละ 4 เดือน: ARIC Spark 1 เดือน, ARIC Forge 2 เดือน, ARIC Launch 1 เดือน">
       <circle cx="230" cy="230" r="170" fill="none" stroke="var(--rule2)" stroke-width="30"/>
       <g transform="rotate(-90 230 230)">
-        <!-- C = 2π·170 = 1068.1 ; segments 25% / 50% / 25% with 8px gaps -->
-        <circle class="seg a" cx="230" cy="230" r="170" stroke="#7A1C1C" style="--L:259"/>
-        <circle class="seg b" cx="230" cy="230" r="170" stroke="#93433F" style="--L:526;stroke-dashoffset:-267"/>
-        <circle class="seg c" cx="230" cy="230" r="170" stroke="#A87A2C" style="--L:259;stroke-dashoffset:-801"/>
+        <circle class="seg a" cx="230" cy="230" r="170" stroke="#7A1C1C" style="--L:84.0;--d:0ms;--lit:1.2s;stroke-dashoffset:-0.0"/>
+        <circle class="seg b" cx="230" cy="230" r="170" stroke="#93433F" style="--L:173.0;--d:90ms;--lit:1.2s;stroke-dashoffset:-89.0"/>
+        <circle class="seg c" cx="230" cy="230" r="170" stroke="#A87A2C" style="--L:84.0;--d:180ms;--lit:1.2s;stroke-dashoffset:-267.0"/>
+        <circle class="seg a" cx="230" cy="230" r="170" stroke="#7A1C1C" style="--L:84.0;--d:270ms;--lit:-10.8s;stroke-dashoffset:-356.0"/>
+        <circle class="seg b" cx="230" cy="230" r="170" stroke="#93433F" style="--L:173.0;--d:360ms;--lit:-10.8s;stroke-dashoffset:-445.1"/>
+        <circle class="seg c" cx="230" cy="230" r="170" stroke="#A87A2C" style="--L:84.0;--d:450ms;--lit:-10.8s;stroke-dashoffset:-623.1"/>
+        <circle class="seg a" cx="230" cy="230" r="170" stroke="#7A1C1C" style="--L:84.0;--d:540ms;--lit:-4.8s;stroke-dashoffset:-712.1"/>
+        <circle class="seg b" cx="230" cy="230" r="170" stroke="#93433F" style="--L:173.0;--d:630ms;--lit:-4.8s;stroke-dashoffset:-801.1"/>
+        <circle class="seg c" cx="230" cy="230" r="170" stroke="#A87A2C" style="--L:84.0;--d:720ms;--lit:-4.8s;stroke-dashoffset:-979.1"/>
       </g>
+      <g class="ticks a-fade" style="--d:700ms"><line x1="230.0" y1="82.0" x2="230.0" y2="94.0" stroke="#B9A88E" stroke-width="2.2" stroke-linecap="round"/><line x1="304.0" y1="101.8" x2="301.0" y2="107.0" stroke="#B9A88E" stroke-width="1.2" stroke-linecap="round"/><line x1="358.2" y1="156.0" x2="353.0" y2="159.0" stroke="#B9A88E" stroke-width="1.2" stroke-linecap="round"/><line x1="378.0" y1="230.0" x2="372.0" y2="230.0" stroke="#B9A88E" stroke-width="1.2" stroke-linecap="round"/><line x1="358.2" y1="304.0" x2="347.8" y2="298.0" stroke="#B9A88E" stroke-width="2.2" stroke-linecap="round"/><line x1="304.0" y1="358.2" x2="301.0" y2="353.0" stroke="#B9A88E" stroke-width="1.2" stroke-linecap="round"/><line x1="230.0" y1="378.0" x2="230.0" y2="372.0" stroke="#B9A88E" stroke-width="1.2" stroke-linecap="round"/><line x1="156.0" y1="358.2" x2="159.0" y2="353.0" stroke="#B9A88E" stroke-width="1.2" stroke-linecap="round"/><line x1="101.8" y1="304.0" x2="112.2" y2="298.0" stroke="#B9A88E" stroke-width="2.2" stroke-linecap="round"/><line x1="82.0" y1="230.0" x2="88.0" y2="230.0" stroke="#B9A88E" stroke-width="1.2" stroke-linecap="round"/><line x1="101.8" y1="156.0" x2="107.0" y2="159.0" stroke="#B9A88E" stroke-width="1.2" stroke-linecap="round"/><line x1="156.0" y1="101.8" x2="159.0" y2="107.0" stroke="#B9A88E" stroke-width="1.2" stroke-linecap="round"/></g>
       <g class="orbit">
-        <circle cx="230" cy="230" r="170" fill="none" stroke="#E4B04A" stroke-width="30" stroke-opacity=".45" stroke-dasharray="70 1000" stroke-dashoffset="70" transform="rotate(-90 230 230)"/>
+        <circle cx="230" cy="230" r="170" fill="none" stroke="#E4B04A" stroke-width="30" stroke-opacity=".45" stroke-dasharray="60 1100" stroke-dashoffset="60" transform="rotate(-90 230 230)"/>
         <circle class="halo" cx="230" cy="60" r="13" fill="none" stroke="#E4B04A" stroke-width="3"/>
         <circle cx="230" cy="60" r="13" fill="#FFF0D2" stroke="#E4B04A" stroke-width="4"/>
       </g>
-      <text x="352" y="90" font-family="Prompt" font-size="19" font-weight="600" fill="#7A1C1C">Spark</text>
-      <text x="230" y="454" font-family="Prompt" font-size="19" font-weight="600" fill="#93433F" text-anchor="middle">Forge</text>
-      <text x="108" y="90" font-family="Prompt" font-size="19" font-weight="600" fill="#8E6420" text-anchor="end">Launch</text>
-      <text x="230" y="214" font-family="IBM Plex Mono" font-size="64" font-weight="600" fill="#1C1610" text-anchor="middle">×3</text>
-      <text x="230" y="252" font-family="Prompt" font-size="17" fill="#6A5B4C" text-anchor="middle">รอบต่อปี</text>
-      <text x="230" y="282" font-family="Prompt" font-size="15" fill="#6A5B4C" text-anchor="middle">9 ทีม · ฿1.48 ล้าน/ปี</text>
+      <text x="406.7" y="134.0" font-family="Prompt" font-size="17" font-weight="600" fill="#4A3F33" text-anchor="middle">รอบ 1</text><text x="230.0" y="440.0" font-family="Prompt" font-size="17" font-weight="600" fill="#4A3F33" text-anchor="middle">รอบ 2</text><text x="53.3" y="134.0" font-family="Prompt" font-size="17" font-weight="600" fill="#4A3F33" text-anchor="middle">รอบ 3</text>
+      <text x="230" y="200" font-family="IBM Plex Mono" font-size="60" font-weight="600" fill="#1C1610" text-anchor="middle">×3</text>
+      <text x="230" y="236" font-family="Prompt" font-size="17" fill="#6A5B4C" text-anchor="middle">รอบต่อปี</text>
+      <text x="230" y="268" font-family="Prompt" font-size="16" font-weight="500" fill="#1C1610" text-anchor="middle">รอบละ 4 เดือน</text>
+      <text x="230" y="292" font-family="Prompt" font-size="14" fill="#6A5B4C" text-anchor="middle">9 ทีม · ฿1.48 ล้าน/ปี</text>
     </svg>
 
     <div style="flex:1;display:flex;flex-direction:column;gap:6px">
       <div class="stage a">
         <span class="dot" style="background:#7A1C1C"></span>
-        <div><h2>ARIC Spark<span class="when">เดือน 1</span></h2>
+        <div><h2>ARIC Spark<span class="when">1 เดือน</span></h2>
           <div class="tagline" style="color:#7A1C1C">จุดประกายไอเดีย — แฮกกาธอน</div>
           <div class="txt">เปิดรับโจทย์และทีมจากภายนอก คัดเหลือ <b>๓ ทีม</b> · ฿100,000 ต่อครั้ง</div></div>
       </div>
       <div class="stage b">
         <span class="dot" style="background:#93433F"></span>
-        <div style="flex:1"><h2>ARIC Forge<span class="when">เดือน 2–3</span></h2>
+        <div style="flex:1"><h2>ARIC Forge<span class="when">2 เดือน</span></h2>
           <div class="tagline" style="color:#93433F">หลอมไอเดียเป็นของจริง — รอบ MVP</div>
           <div class="txt">ทุน<b>ทีมละ ฿100,000</b> + ที่ปรึกษาอุตสาหกรรม สร้างและทดสอบกับผู้ใช้จริง</div>
           <div class="split" aria-hidden="true"><span style="flex:50;background:#93433F"></span><span style="flex:40;background:var(--tan)"></span><span style="flex:10;background:var(--ink2)"></span></div>
@@ -374,7 +379,7 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
       </div>
       <div class="stage c">
         <span class="dot" style="background:#A87A2C"></span>
-        <div><h2>ARIC Launch<span class="when">เดือน 4</span></h2>
+        <div><h2>ARIC Launch<span class="when">1 เดือน</span></h2>
           <div class="tagline" style="color:#8E6420">ส่งสู่ตลาด — ออกบูธ</div>
           <div class="txt">พบลูกค้าและนักลงทุนในงานระดับประเทศ · SITE · Techsauce · DigiTech ASEAN</div></div>
       </div>
