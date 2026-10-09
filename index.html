@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="deck-version" content="2026-10-09.2">
+<meta name="deck-version" content="2026-10-09.3">
 <meta name="description" content="แผนแนวคิดการจัดตั้งศูนย์นวัตกรรมด้านปัญญาประดิษฐ์และหุ่นยนต์ มหาวิทยาลัยแม่ฟ้าหลวง (MFU-ARIC) ระยะที่ 1-2">
 <link rel="icon" type="image/svg+xml" href="aric_logo_mark.svg">
 <title>ARIC Concept Plan</title>
@@ -130,6 +130,20 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
 .mark .spark path{fill:none;stroke:#FFF6DC;stroke-width:7;stroke-linecap:round;opacity:0}
 @keyframes spark{0%{stroke-dasharray:22 2000;stroke-dashoffset:22;opacity:0}12%{opacity:1}88%{opacity:1}100%{stroke-dasharray:22 2000;stroke-dashoffset:calc(-1px * var(--L));opacity:0}}
 .s.play .mark .spark path{animation:spark 1.8s linear infinite;animation-delay:calc(2800ms + var(--d,0ms))}
+
+/* Q&A — the mark rebuilds itself on an 8 s loop while the slide is up */
+@keyframes qRange{0%{transform:scaleY(0);opacity:1}14%{transform:scaleY(1)}86%{transform:scaleY(1);opacity:1}95%,100%{transform:scaleY(1);opacity:0}}
+@keyframes qSun{0%,10%{opacity:0;transform:scale(.6)}22%{opacity:1;transform:none}86%{opacity:1}95%,100%{opacity:0}}
+@keyframes qDraw{0%,16%{stroke-dasharray:0 2000;opacity:0}17%{opacity:1}36%{stroke-dasharray:var(--L) 2000}86%{stroke-dasharray:var(--L) 2000;opacity:1}95%,100%{stroke-dasharray:var(--L) 2000;opacity:0}}
+@keyframes qNode{0%,36%{opacity:0;transform:scale(.6)}42%{opacity:1;transform:scale(1.1)}46%{transform:scale(1)}86%{opacity:1;transform:scale(1)}95%,100%{opacity:0}}
+@keyframes qSpark{0%,48%{stroke-dasharray:22 2000;stroke-dashoffset:22;opacity:0}50%{opacity:1}64%{stroke-dashoffset:calc(-1px * var(--L));opacity:1}65%,67%{stroke-dashoffset:calc(-1px * var(--L));opacity:0}68%{stroke-dashoffset:22;opacity:0}70%{opacity:1}83%{stroke-dashoffset:calc(-1px * var(--L));opacity:1}84%,100%{stroke-dashoffset:calc(-1px * var(--L));opacity:0}}
+.s.qa.play .mark .range{animation:qRange 8s var(--ease) infinite;animation-delay:0ms}
+.s.qa.play .mark .sun{animation:qSun 8s var(--ease) infinite;animation-delay:0ms}
+.s.qa.play .mark .ridge path{animation:qDraw 8s var(--ease) infinite;animation-delay:calc(2 * var(--d,0ms))}
+.s.qa.play .mark g .node:nth-child(n){animation:qNode 8s var(--ease) infinite;animation-delay:0ms}
+.s.qa.play .mark g .node:nth-child(2){animation-delay:120ms}
+.s.qa.play .mark g .node:nth-child(3){animation-delay:240ms}
+.s.qa.play .mark .spark path{animation:qSpark 8s linear infinite;animation-delay:calc(var(--d,0ms) / 4)}
 
 /* ---------- 2 · concept stack ---------- */
 .layer{display:flex;align-items:center;gap:16px;padding:14px 18px;border-radius:3px}
@@ -666,13 +680,13 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
 </section>
 
 <!-- ═══════════ 11 · Q&A ═══════════ -->
-<section class="s" data-cap="ถาม–ตอบ · Q&amp;A">
+<section class="s qa" data-cap="ถาม–ตอบ · Q&amp;A">
   <div style="display:flex;justify-content:space-between;align-items:flex-start">
     <div><div style="font-size:16px;font-weight:500">มหาวิทยาลัยแม่ฟ้าหลวง</div><div class="lbl">Mae Fah Luang University</div></div>
     <div style="text-align:right"><div style="font-size:16px;font-weight:500">สำนักวิชาเทคโนโลยีดิจิทัลประยุกต์</div><div class="lbl">School of Applied Digital Technology</div></div>
   </div>
   <div style="flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">
-    <svg class="mark" viewBox="40 90 450 320" width="170" height="121" aria-hidden="true">
+    <svg class="mark" viewBox="40 90 450 320" width="260" height="185" aria-hidden="true">
         <defs><linearGradient id="rangeQA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C8102E"/><stop offset="1" stop-color="#7A0C1E"/></linearGradient></defs>
         <circle class="sun" cx="418" cy="118" r="30" fill="#E4B04A"/>
         <path class="range" d="M56 400 L168 192 L244 282 L320 140 L456 400 Z" fill="url(#rangeQA)"/>
@@ -694,8 +708,8 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
         <g fill="#FFFFFF" stroke="#E4B04A" stroke-width="5"><circle class="node" cx="168" cy="192" r="12"/><circle class="node" cx="244" cy="282" r="10"/><circle class="node" cx="320" cy="140" r="13"/></g>
         <path d="M40 400 H472" stroke="#7A0C1E" stroke-width="10" stroke-linecap="round"/>
       </svg>
-    <div class="red a-wipe" style="font-size:96px;font-weight:600;line-height:1.1;margin-top:26px;--d:1500ms">ถาม – ตอบ</div>
-    <div class="a-growX" style="height:2px;background:var(--red);width:420px;margin:24px 0 22px;transform-origin:center;--d:1900ms"></div>
+    <div class="red a-wipe" style="font-size:88px;font-weight:600;line-height:1.1;margin-top:18px;--d:1500ms">ถาม – ตอบ</div>
+    <div class="a-growX" style="height:2px;background:var(--red);width:420px;margin:18px 0 18px;transform-origin:center;--d:1900ms"></div>
     <div class="sub a-fade" style="font-size:20px;max-width:760px;line-height:1.55;--d:2100ms">ขอบคุณสำหรับการรับฟัง — ยินดีรับข้อซักถามและข้อเสนอแนะ<br>เพื่อปรับแผนการจัดตั้ง <b>MFU-ARIC</b> ก่อนเสนอขออนุมัติ</div>
   </div>
   <div style="display:flex;justify-content:center;border-top:1px solid var(--rule);padding-top:14px"><div class="note">ภาคผนวก — ทำไม MFii จึงรองรับแผนนี้แทนไม่ได้</div></div>
