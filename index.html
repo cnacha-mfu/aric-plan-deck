@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="deck-version" content="2026-10-12.2">
+<meta name="deck-version" content="2026-10-12.3">
 <meta name="description" content="แผนแนวคิดการจัดตั้งศูนย์นวัตกรรมด้านปัญญาประดิษฐ์และหุ่นยนต์ มหาวิทยาลัยแม่ฟ้าหลวง (MFU-ARIC) ระยะที่ 1-2">
 <link rel="icon" type="image/svg+xml" href="aric_logo_mark.svg">
 <title>ARIC Concept Plan</title>
@@ -135,6 +135,18 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
 .mark .spark path{fill:none;stroke:#FFF6DC;stroke-width:7;stroke-linecap:round;opacity:0}
 @keyframes spark{0%{stroke-dasharray:22 2000;stroke-dashoffset:22;opacity:0}12%{opacity:1}88%{opacity:1}100%{stroke-dasharray:22 2000;stroke-dashoffset:calc(-1px * var(--L));opacity:0}}
 .s.play .mark .spark path{animation:spark 1.8s linear infinite;animation-delay:calc(2800ms + var(--d,0ms))}
+
+/* Q&A — film panel (plays muted on loop while the slide is up) */
+.film{flex:1;margin:0;display:flex;flex-direction:column;gap:10px}
+.film video{width:100%;aspect-ratio:16/9;border-radius:10px;background:#1a0608;display:block;
+  box-shadow:0 18px 40px rgba(60,10,10,.28),0 2px 6px rgba(60,10,10,.18)}
+.film figcaption{display:flex;justify-content:space-between;align-items:center;font-size:15px;color:var(--ink2)}
+.filmBtns{display:flex;gap:10px}
+.filmBtns button,.filmBtns a{font:500 14px var(--sans);padding:6px 14px;border-radius:999px;border:1px solid var(--rule);
+  background:#fff;color:var(--red);cursor:pointer;text-decoration:none}
+.filmBtns button:hover,.filmBtns a:hover{border-color:var(--red)}
+.filmBtns button:focus-visible,.filmBtns a:focus-visible{outline:2px solid var(--sun);outline-offset:2px}
+.filmBtns button[aria-pressed="true"]{background:var(--red);color:#fff;border-color:var(--red)}
 
 /* Q&A — the mark rebuilds itself on an 8 s loop while the slide is up */
 @keyframes qRange{0%{transform:scaleY(0);opacity:1}14%{transform:scaleY(1)}86%{transform:scaleY(1);opacity:1}95%,100%{transform:scaleY(1);opacity:0}}
@@ -830,8 +842,9 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
     <div><div style="font-size:16px;font-weight:500">มหาวิทยาลัยแม่ฟ้าหลวง</div><div class="lbl">Mae Fah Luang University</div></div>
     <div style="text-align:right"><div style="font-size:16px;font-weight:500">สำนักวิชาเทคโนโลยีดิจิทัลประยุกต์</div><div class="lbl">School of Applied Digital Technology</div></div>
   </div>
-  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">
-    <svg class="mark" viewBox="40 90 450 320" width="260" height="185" aria-hidden="true">
+  <div style="flex:1;display:flex;align-items:center;gap:48px">
+  <div style="flex:0 0 470px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">
+    <svg class="mark" viewBox="40 90 450 320" width="210" height="149" aria-hidden="true">
         <defs><linearGradient id="rangeQA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C8102E"/><stop offset="1" stop-color="#7A0C1E"/></linearGradient></defs>
         <circle class="sun" cx="418" cy="118" r="30" fill="#E4B04A"/>
         <path class="range" d="M56 400 L168 192 L244 282 L320 140 L456 400 Z" fill="url(#rangeQA)"/>
@@ -853,9 +866,20 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
         <g fill="#FFFFFF" stroke="#E4B04A" stroke-width="5"><circle class="node" cx="168" cy="192" r="12"/><circle class="node" cx="244" cy="282" r="10"/><circle class="node" cx="320" cy="140" r="13"/></g>
         <path d="M40 400 H472" stroke="#7A0C1E" stroke-width="10" stroke-linecap="round"/>
       </svg>
-    <div class="red a-wipe" style="font-size:88px;font-weight:600;line-height:1.1;margin-top:18px;--d:1500ms">ถาม – ตอบ</div>
-    <div class="a-growX" style="height:2px;background:var(--red);width:420px;margin:18px 0 18px;transform-origin:center;--d:1900ms"></div>
-    <div class="sub a-fade" style="font-size:20px;max-width:760px;line-height:1.55;--d:2100ms">ขอบคุณสำหรับการรับฟัง — ยินดีรับข้อซักถามและข้อเสนอแนะ<br>เพื่อปรับแผนการจัดตั้ง <b>MFU-ARIC</b> ก่อนเสนอขออนุมัติ</div>
+    <div class="red a-wipe" style="font-size:80px;font-weight:600;line-height:1.1;margin-top:16px;--d:1500ms">ถาม – ตอบ</div>
+    <div class="a-growX" style="height:2px;background:var(--red);width:340px;margin:16px 0;transform-origin:center;--d:1900ms"></div>
+    <div class="sub a-fade" style="font-size:19px;line-height:1.55;--d:2100ms">ขอบคุณสำหรับการรับฟัง — ยินดีรับข้อซักถาม<br>และข้อเสนอแนะ เพื่อปรับแผนการจัดตั้ง <b>MFU-ARIC</b></div>
+  </div>
+  <figure class="film a-focus" style="--d:600ms">
+    <video id="qaFilm" src="aric_film.mp4" poster="aric_film_poster.jpg" muted loop playsinline preload="auto" aria-label="วิดีโอแนะนำศูนย์ ARIC ความยาว 1 นาที 27 วินาที"></video>
+    <figcaption>
+      <span><b>วิดีโอแนะนำ ARIC</b> · 1:27</span>
+      <span class="filmBtns">
+        <button type="button" id="qaSound" aria-pressed="false">เปิดเสียง</button>
+        <a href="aric_film.mp4" target="_blank" rel="noopener">เปิดวิดีโอเต็ม</a>
+      </span>
+    </figcaption>
+  </figure>
   </div>
   <div style="display:flex;justify-content:center;border-top:1px solid var(--rule);padding-top:14px"><div class="note">ภาคผนวก — ทำไม MFii จึงรองรับแผนนี้แทนไม่ได้</div></div>
   <div class="pg">12</div>
@@ -942,6 +966,10 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
     void slides[i].offsetWidth;            // restart entrance animations on every visit
     slides[i].classList.add('play');
     countUp(slides[i]);
+    Array.prototype.forEach.call(document.querySelectorAll('#stage video'), function(v){
+      if (slides[i].contains(v)) { try { v.currentTime = 0; var pr = v.play(); if (pr && pr.catch) pr.catch(function(){}); } catch(e){} }
+      else v.pause();
+    });
     dotEls.forEach(function(d, k){ d.classList.toggle('on', k === i); });
     cnt.textContent = pad(i + 1) + ' / ' + pad(slides.length);
     if (document.body.classList.contains('overview')) toggleOv();
@@ -955,9 +983,17 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
   window.addEventListener('resize', fit);
   fit();
 
+  var qaFilm = document.getElementById('qaFilm'), qaSound = document.getElementById('qaSound');
+  if (qaFilm && qaSound) qaSound.addEventListener('click', function(e){
+    e.stopPropagation(); qaFilm.muted = !qaFilm.muted;
+    qaSound.setAttribute('aria-pressed', String(!qaFilm.muted));
+    qaSound.textContent = qaFilm.muted ? 'เปิดเสียง' : 'ปิดเสียง';
+    if (qaFilm.paused) qaFilm.play();
+  });
   document.getElementById('prev').addEventListener('click', function(){ go(i - 1); });
   document.getElementById('next').addEventListener('click', function(){ go(i + 1); });
   document.addEventListener('keydown', function(e){
+    if (e.key === ' ' && e.target.closest && e.target.closest('button, a')) return;   // let focused controls handle Space
     if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { e.preventDefault(); go(i + 1); }
     else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(i - 1); }
     else if (e.key === 'Home') go(0);
