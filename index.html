@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="deck-version" content="2026-10-09.7">
+<meta name="deck-version" content="2026-10-12.1">
 <meta name="description" content="แผนแนวคิดการจัดตั้งศูนย์นวัตกรรมด้านปัญญาประดิษฐ์และหุ่นยนต์ มหาวิทยาลัยแม่ฟ้าหลวง (MFU-ARIC) ระยะที่ 1-2">
 <link rel="icon" type="image/svg+xml" href="aric_logo_mark.svg">
 <title>ARIC Concept Plan</title>
@@ -150,7 +150,30 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
 .s.qa.play .mark g .node:nth-child(3){animation-delay:240ms}
 .s.qa.play .mark .spark path{animation:qSpark 8s linear infinite;animation-delay:calc(var(--d,0ms) / 4)}
 
-/* ---------- 2 · concept stack ---------- */
+/* ---------- 2 · why (Golden Circle) ---------- */
+.why .lead{font-size:26px;font-weight:300;color:var(--mute);line-height:1.3}
+.why h1{font-size:60px;font-weight:600;line-height:1.24;margin:4px 0 0;letter-spacing:-.01em;text-wrap:balance}
+.why .rows{margin-top:30px}
+.why .row{display:flex;gap:18px;align-items:baseline;padding:12px 0;border-top:1px solid var(--rule)}
+.why .row .k{font-size:20px;font-weight:600;width:84px;flex:none}
+.why .row .v{font-size:18.5px;font-weight:300;line-height:1.5;color:var(--ink2)}
+.why .row .v b{font-weight:500;color:var(--ink)}
+.gc .disc{transform-box:view-box;transform-origin:180px 260px}
+.gc .lead-line{fill:none;stroke:#4A3F33;stroke-width:1.5;stroke-linecap:round}
+.gc .pin{fill:#FAF6EE;stroke:#4A3F33;stroke-width:2;transform-box:fill-box;transform-origin:center}
+.gc .glow{fill:none;stroke:#E4B04A;stroke-width:3;opacity:0}
+@keyframes core{0%{transform:scale(0);opacity:0}60%{transform:scale(1.08);opacity:1}100%{transform:none;opacity:1}}
+@keyframes ringOut{from{transform:scale(var(--s0));opacity:0}to{transform:none;opacity:1}}
+@keyframes glow{0%{r:58;opacity:.7}100%{r:168;opacity:0}}
+.s.play .gc .core{animation:core .8s var(--ease) both;animation-delay:var(--d,0ms)}
+.s.play .gc .ring2{animation:ringOut 1s var(--ease) both;animation-delay:var(--d,0ms)}
+.s.play .gc .glow{animation:glow 3s ease-out 3s infinite}
+@media (prefers-reduced-motion:reduce){
+  .s.play .gc .core,.s.play .gc .ring2{animation:fade .3s ease both !important}
+  .s.play .gc .glow{animation:none !important}
+}
+
+/* ---------- 3 · concept stack ---------- */
 .layer{display:flex;align-items:center;gap:16px;padding:14px 18px;border-radius:3px}
 .layer .L{font-family:var(--mono);font-size:18px;font-weight:600;width:34px}
 .layer .nm{font-size:17px;font-weight:500}
@@ -180,7 +203,7 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
 .s.play .arm .n3{animation:think 1.2s ease-in-out 2.4s infinite}
 @media (prefers-reduced-motion:reduce){.s.play .arm .sig,.s.play .arm .flash,.s.play .arm .grip,.s.play .arm .n1,.s.play .arm .n2,.s.play .arm .n3{animation:none!important}}
 
-/* ---------- 3 · engine (focal) ---------- */
+/* ---------- 4 · engine (focal) ---------- */
 .ring .seg{fill:none;stroke-width:30;stroke-linecap:butt}
 .ring .seg{stroke-dasharray:var(--L) 2000}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -208,20 +231,20 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
 .s.play .stage.c{animation:rise .6s var(--ease) both 500ms,rowC 6s linear 1.2s infinite}
 .split{display:flex;height:8px;gap:2px;margin-top:8px;max-width:340px}
 
-/* ---------- 4 · org ---------- */
+/* ---------- 5 · org ---------- */
 .box{background:#fff;border:1px solid var(--rule);border-radius:4px;padding:14px 16px;text-align:center}
 .box h2{margin:0;font-size:18px;font-weight:600}
 .box p{margin:4px 0 0;font-size:14px;color:var(--mute);font-weight:300}
 .vline{width:1px;height:30px;background:var(--tan);margin:0 auto}
 
-/* ---------- 9 · gate ---------- */
+/* ---------- 10 · gate ---------- */
 .crit{display:flex;gap:16px;align-items:center;padding:12px 0;border-bottom:1px solid var(--rule2)}
 .crit:last-child{border-bottom:0}
 .crit svg{flex:none}
 .tick{stroke-dasharray:var(--L) 2000}
 
 
-/* ---------- 10 · vision (closing) ---------- */
+/* ---------- 11 · vision (closing) ---------- */
 .s.vision{background:radial-gradient(120% 90% at 78% 50%,#4A1414 0%,#2A0B0B 55%,#1C0808 100%);color:var(--cream)}
 .s.vision .pg{color:rgba(250,246,238,.45)}
 .vision .ring-v{fill:none;stroke:rgba(228,176,74,.16);stroke-width:1}
@@ -319,7 +342,57 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
   <div class="pg">01</div>
 </section>
 
-<!-- ═══════════ 2 · CONCEPT ═══════════ -->
+<!-- ═══════════ 2 · WHY — the belief (Golden Circle) ═══════════ -->
+<section class="s why" data-cap="ทำไม · Why ARIC">
+  <div class="body" style="gap:34px;align-items:center">
+    <div style="flex:1;min-width:0;display:flex;flex-direction:column">
+      <div class="lead a-fade" style="--d:300ms">เราเชื่อว่า</div>
+      <h1 class="a-wipe" style="--d:500ms">ภาคเหนือสร้าง<br><span class="red">อนาคตดิจิทัล</span><br>ของตัวเองได้</h1>
+      <div class="rows">
+        <div class="row a-rise" style="--d:1900ms"><div class="k" style="color:var(--mute)">วันนี้</div><div class="v">คนเก่งจากภาคเหนือ<b>จำนวนไม่น้อย</b><br>ต้องจากบ้านไปหางานที่ท้าทาย</div></div>
+        <div class="row a-rise" style="--d:2050ms"><div class="k red">ARIC</div><div class="v">มีขึ้นเพื่อให้พวกเขาได้<b>ทำงานระดับประเทศ<br>โดยไม่ต้องจากบ้าน</b></div></div>
+        <div class="row a-rise" style="--d:2200ms"><div class="k" style="color:var(--gold2)">ภูมิภาค</div><div class="v">จึงสร้าง<b>คน บริษัท และลูกค้า</b>ของตัวเองได้</div></div>
+      </div>
+    </div>
+    <svg class="gc" viewBox="0 0 600 520" width="600" height="520" style="flex:none" role="img" aria-label="วงกลมทองคำ: WHY สิ่งที่เราเชื่อ อยู่ตรงกลาง ล้อมด้วย HOW สร้างสมอง ไม่สร้างมือกล ผ่าน Spark Forge Launch และ WHAT ศูนย์ ARIC">
+      <circle class="disc ring2" cx="180" cy="260" r="170" fill="#F1DDB0" style="--s0:.66;--d:1300ms"/>
+      <circle class="disc ring2" cx="180" cy="260" r="112" fill="#93433F" stroke="#FAF6EE" stroke-width="3" style="--s0:.52;--d:1000ms"/>
+      <circle class="glow" cx="180" cy="260" r="58"/>
+      <circle class="disc core" cx="180" cy="260" r="58" fill="#7A1C1C" stroke="#FAF6EE" stroke-width="3" style="--d:150ms"/>
+      <g class="a-fade" style="--d:450ms">
+        <text x="180" y="262" font-family="IBM Plex Mono" font-size="24" font-weight="600" fill="#FFF0D2" text-anchor="middle">WHY</text>
+        <text x="180" y="286" font-family="Prompt" font-size="15" fill="rgba(255,240,210,.85)" text-anchor="middle">ทำไม</text>
+      </g>
+      <text class="a-fade" x="180" y="182" font-family="IBM Plex Mono" font-size="17" font-weight="600" fill="#FFF0D2" text-anchor="middle" style="--d:1350ms">HOW</text>
+      <text class="a-fade" x="180" y="126" font-family="IBM Plex Mono" font-size="17" font-weight="600" fill="#8E6420" text-anchor="middle" style="--d:1650ms">WHAT</text>
+
+      <path class="lead-line a-dash" d="M210 230 L368 160" style="--L:173;--d:1700ms" stroke-dasharray="173 2000"/>
+      <path class="lead-line a-dash" d="M265 267 L368 275" style="--L:104;--d:1850ms" stroke-dasharray="104 2000"/>
+      <path class="lead-line a-dash" d="M295 341 L368 390" style="--L:88;--d:2000ms" stroke-dasharray="88 2000"/>
+      <circle class="pin a-pop" cx="210" cy="230" r="5" style="--d:1700ms"/>
+      <circle class="pin a-pop" cx="265" cy="267" r="5" style="--d:1850ms"/>
+      <circle class="pin a-pop" cx="295" cy="341" r="5" style="--d:2000ms"/>
+
+      <g class="a-fade" style="--d:1800ms">
+        <text x="380" y="158" font-family="Prompt" font-size="19" font-weight="600" fill="#7A1C1C">WHY <tspan font-weight="400" fill="#1C1610">· ทำไม</tspan></text>
+        <text x="380" y="184" font-family="Prompt" font-size="16" fill="#4A3F33">สิ่งที่เราเชื่อ</text>
+      </g>
+      <g class="a-fade" style="--d:1950ms">
+        <text x="380" y="273" font-family="Prompt" font-size="19" font-weight="600" fill="#93433F">HOW <tspan font-weight="400" fill="#1C1610">· ทำอย่างไร</tspan></text>
+        <text x="380" y="299" font-family="Prompt" font-size="16" fill="#4A3F33">สร้างสมอง ไม่สร้างมือกล</text>
+        <text x="380" y="322" font-family="Prompt" font-size="16" fill="#4A3F33">Spark · Forge · Launch</text>
+      </g>
+      <g class="a-fade" style="--d:2100ms">
+        <text x="380" y="388" font-family="Prompt" font-size="19" font-weight="600" fill="#8E6420">WHAT <tspan font-weight="400" fill="#1C1610">· ทำอะไร</tspan></text>
+        <text x="380" y="414" font-family="Prompt" font-size="16" fill="#4A3F33">ศูนย์ ARIC</text>
+        <text x="380" y="437" font-family="Prompt" font-size="16" fill="#4A3F33">แผนจัดตั้งและดำเนินงาน ๒ ระยะ</text>
+      </g>
+    </svg>
+  </div>
+  <div class="pg">02</div>
+</section>
+
+<!-- ═══════════ 3 · CONCEPT ═══════════ -->
 <section class="s" data-cap="แนวคิด · The Concept">
   <div class="head">
     <h1 class="t">ARIC คือ<span class="red">ศูนย์สร้างนวัตกรรม AI จากโจทย์จริง</span></h1>
@@ -389,10 +462,10 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
       </div>
     </div>
   </div>
-  <div class="pg">02</div>
+  <div class="pg">03</div>
 </section>
 
-<!-- ═══════════ 3 · THE ENGINE (focal) ═══════════ -->
+<!-- ═══════════ 4 · THE ENGINE (focal) ═══════════ -->
 <section class="s" data-cap="กลไกหลัก · The Engine">
   <div class="head">
     <h1 class="t">กลไกหลัก — <span class="red">รอบละ ๔ เดือน หมุนปีละ ๓ รอบ</span></h1>
@@ -449,10 +522,10 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
       <div class="note a-fade" style="--d:900ms;margin-top:14px;padding-left:18px">ลูกค้าที่พบในงานออกบูธ กลายเป็นโจทย์ของรอบถัดไป · ทุกทีมใช้ <b>AI coding agent และ DGX</b> จากส่วนกลาง งบทีมละ ฿100,000 จึงพอ</div>
     </div>
   </div>
-  <div class="pg">03</div>
+  <div class="pg">04</div>
 </section>
 
-<!-- ═══════════ 4 · ORGANISATION ═══════════ -->
+<!-- ═══════════ 5 · ORGANISATION ═══════════ -->
 <section class="s" data-cap="โครงสร้าง · Organisation">
   <div class="head">
     <h1 class="t">โครงสร้างเล็กที่สุดที่ทำงานได้ — <span class="red">อัตราประจำ ๒ อัตราใหม่</span></h1>
@@ -484,10 +557,10 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
       <div class="a-fade" style="--d:1000ms"><div style="font-size:17px;font-weight:600">เพิ่มในระยะที่ ๒</div><div class="txt">ผู้บริหารเต็มเวลา · ผู้ช่วยด้าน<b>การเงิน</b>และ<b>การตลาด</b> · ผู้เชี่ยวชาญด้านการลงทุน</div></div>
     </div>
   </div>
-  <div class="pg">04</div>
+  <div class="pg">05</div>
 </section>
 
-<!-- ═══════════ 5 · PHASING ═══════════ -->
+<!-- ═══════════ 6 · PHASING ═══════════ -->
 <section class="s" data-cap="สองระยะ · Phase 1 → 2">
   <div class="head">
     <h1 class="t">สองระยะ — เพราะ<span class="red">มหาวิทยาลัยถือหุ้นในบริษัทเองไม่ได้</span></h1>
@@ -525,10 +598,10 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
     </div>
     <div class="note a-fade" style="--d:1300ms">ระยะที่ ๑ เริ่มได้ก่อนงบ MDES ฿575 ล้านมาถึง และเป็นตัวพิสูจน์โมเดลการดำเนินงาน</div>
   </div>
-  <div class="pg">05</div>
+  <div class="pg">06</div>
 </section>
 
-<!-- ═══════════ 6 · PHASE 1 BUDGET ═══════════ -->
+<!-- ═══════════ 7 · PHASE 1 BUDGET ═══════════ -->
 <section class="s" data-cap="งบระยะที่ ๑ · Budget">
   <div class="head">
     <h1 class="t">งบประมาณระยะที่ ๑ — <span class="red">฿<span data-count="6190500">6,190,500</span></span></h1>
@@ -575,10 +648,10 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
       </div>
     </div>
   </div>
-  <div class="pg">06</div>
+  <div class="pg">07</div>
 </section>
 
-<!-- ═══════════ 7 · PHASE 2 + EQUITY ═══════════ -->
+<!-- ═══════════ 8 · PHASE 2 + EQUITY ═══════════ -->
 <section class="s" data-cap="ระยะที่ ๒ และหุ้น · Equity">
   <div class="head">
     <h1 class="t">ระยะที่ ๒ — <span class="red">มูลนิธิถือหุ้น 15%</span> ในทุกบริษัทที่เกิดจากศูนย์</h1>
@@ -618,10 +691,10 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
       <div class="txt a-fade" style="--d:1100ms">ทีมงานของศูนย์<b>ไม่ถือหุ้นส่วนตัว</b> — เลี่ยงผลประโยชน์ทับซ้อนในคนที่ตัดสินว่าใครได้ทุน</div>
     </div>
   </div>
-  <div class="pg">07</div>
+  <div class="pg">08</div>
 </section>
 
-<!-- ═══════════ 8 · RETURN ═══════════ -->
+<!-- ═══════════ 9 · RETURN ═══════════ -->
 <section class="s" data-cap="ผลตอบแทน · Return">
   <div class="head">
     <h1 class="t">ผลตอบแทนระยะที่ ๑ — <span class="red">คืนกลับ 85% ของต้นทุน</span></h1>
@@ -653,10 +726,10 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
       </div>
     </div>
   </div>
-  <div class="pg">08</div>
+  <div class="pg">09</div>
 </section>
 
-<!-- ═══════════ 9 · GATE & ASK ═══════════ -->
+<!-- ═══════════ 10 · GATE & ASK ═══════════ -->
 <section class="s" data-cap="เกณฑ์และสิ่งที่ขอ · The Ask">
   <div class="head">
     <h1 class="t">ผ่านครบทุกข้อ จึงเข้าระยะที่ ๒ — <span class="red">และสิ่งที่ขออนุมัติวันนี้</span></h1>
@@ -687,10 +760,10 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
       </div>
     </div>
   </div>
-  <div class="pg">09</div>
+  <div class="pg">10</div>
 </section>
 
-<!-- ═══════════ 10 · VISION — closing statement ═══════════ -->
+<!-- ═══════════ 11 · VISION — closing statement ═══════════ -->
 <section class="s vision" data-cap="ภาพใหญ่ · Northern Digital Industry">
   <div class="bg" aria-hidden="true"></div>
   <div class="shade" aria-hidden="true"></div>
@@ -748,10 +821,10 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
         <text class="hubsub a-fade" x="236.5" y="255.9" text-anchor="end" style="--d:300ms">มฟล. · เชียงราย</text>
     </svg>
   </div>
-  <div class="pg">10</div>
+  <div class="pg">11</div>
 </section>
 
-<!-- ═══════════ 11 · Q&A ═══════════ -->
+<!-- ═══════════ 12 · Q&A ═══════════ -->
 <section class="s qa" data-cap="ถาม–ตอบ · Q&amp;A">
   <div style="display:flex;justify-content:space-between;align-items:flex-start">
     <div><div style="font-size:16px;font-weight:500">มหาวิทยาลัยแม่ฟ้าหลวง</div><div class="lbl">Mae Fah Luang University</div></div>
@@ -785,10 +858,10 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
     <div class="sub a-fade" style="font-size:20px;max-width:760px;line-height:1.55;--d:2100ms">ขอบคุณสำหรับการรับฟัง — ยินดีรับข้อซักถามและข้อเสนอแนะ<br>เพื่อปรับแผนการจัดตั้ง <b>MFU-ARIC</b> ก่อนเสนอขออนุมัติ</div>
   </div>
   <div style="display:flex;justify-content:center;border-top:1px solid var(--rule);padding-top:14px"><div class="note">ภาคผนวก — ทำไม MFii จึงรองรับแผนนี้แทนไม่ได้</div></div>
-  <div class="pg">11</div>
+  <div class="pg">12</div>
 </section>
 
-<!-- ═══════════ 12 · APPENDIX — WHY NOT MFii ═══════════ -->
+<!-- ═══════════ 13 · APPENDIX — WHY NOT MFii ═══════════ -->
 <section class="s" data-cap="ภาคผนวก · ทำไมไม่ใช่ MFii">
   <div class="head">
     <h1 class="t">ทำไม MFii จึงรองรับแผนนี้แทนไม่ได้ <span class="chip g" style="vertical-align:8px">ภาคผนวก</span></h1>
@@ -812,7 +885,7 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
       <div class="note" style="margin-top:auto">ข้อมูล MFii จากข่าวประชาสัมพันธ์ของมหาวิทยาลัย ๒๕๖๘–๒๕๖๙ — ควรยืนยันขอบเขตงานกับ MFii ก่อนนำเสนอ</div>
     </div>
   </div>
-  <div class="pg">12</div>
+  <div class="pg">13</div>
 </section>
 
 </div></div>
@@ -821,7 +894,7 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
 <div id="bar">
   <button id="prev" aria-label="สไลด์ก่อนหน้า">‹</button>
   <div id="dots"></div>
-  <span id="cnt">01 / 12</span>
+  <span id="cnt">01 / 13</span>
   <button id="next" aria-label="สไลด์ถัดไป">›</button>
   <button id="ov" aria-label="ดูภาพรวม" title="ภาพรวมทั้งหมด (G)">▦</button>
   <span id="ver"></span>
