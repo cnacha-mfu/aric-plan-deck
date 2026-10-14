@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="deck-version" content="2026-10-13.3">
+<meta name="deck-version" content="2026-10-14.1">
 <meta name="description" content="แผนแนวคิดการจัดตั้งศูนย์นวัตกรรมด้านปัญญาประดิษฐ์และหุ่นยนต์ มหาวิทยาลัยแม่ฟ้าหลวง (MFU-ARIC) ระยะที่ 1-2">
 <link rel="icon" type="image/svg+xml" href="aric_logo_mark.svg">
 <title>ARIC Concept Plan</title>
@@ -135,6 +135,18 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
 .mark .spark path{fill:none;stroke:#FFF6DC;stroke-width:7;stroke-linecap:round;opacity:0}
 @keyframes spark{0%{stroke-dasharray:22 2000;stroke-dashoffset:22;opacity:0}12%{opacity:1}88%{opacity:1}100%{stroke-dasharray:22 2000;stroke-dashoffset:calc(-1px * var(--L));opacity:0}}
 .s.play .mark .spark path{animation:spark 1.8s linear infinite;animation-delay:calc(2800ms + var(--d,0ms))}
+
+/* Concept — advisors' endorsement card (links to the council report) */
+.advisors{margin-top:auto;display:flex;gap:18px;align-items:center;padding:11px 18px;border-left:3px solid var(--red);
+  background:rgba(122,28,28,.05);border-radius:0 6px 6px 0;text-decoration:none;color:inherit}
+.advisors:hover{background:rgba(122,28,28,.09)}
+.advisors:focus-visible{outline:2px solid var(--sun);outline-offset:2px}
+.adv-k{font-size:13px;color:var(--mute);line-height:1.35;white-space:nowrap}
+.adv-k b{color:var(--red);font-weight:600;font-size:15px}
+.adv-q{font-size:17px;color:var(--ink);line-height:1.4;white-space:nowrap}
+.adv-q b{color:var(--red);font-weight:600}
+.adv-n{font-size:12px;color:var(--mute);margin-top:2px;white-space:nowrap}
+.adv-l{display:inline-block;margin-top:3px;color:var(--red);font-weight:500;font-size:12.5px;white-space:nowrap}
 
 /* Q&A — film panel (plays muted on loop while the slide is up) */
 .film{flex:1;margin:0;display:flex;flex-direction:column;gap:10px}
@@ -453,7 +465,14 @@ h1.t{font-size:38px;font-weight:600;margin:0;letter-spacing:-.01em;line-height:1
         <div class="note a-fade" style="margin-top:10px;text-align:right;--d:1400ms">มือกลซื้อได้ · <b class="red">สมองคือสิ่งที่ ARIC สร้าง</b></div>
         </div>
       </div>
-      <div class="txt a-fade" style="margin-top:auto;--d:1300ms">ฮาร์ดแวร์ถูกห่วงโซ่อุปทานจีนครองแล้ว แต่ชั้นที่ต้องเข้าใจ<b>ภาษา ข้อมูล และหน้างานของไทย</b>ยังว่าง — และปรับตามเทคโนโลยีได้เร็ว</div>
+      <a class="advisors a-rise" href="https://cnacha-mfu.github.io/aric-council-report/" target="_blank" rel="noopener" style="--d:1500ms">
+        <div class="adv-k">ผู้ทรงคุณวุฒิ ๔ ท่าน<br><b>เห็นพ้องทิศทางนี้</b><br><span class="adv-l">อ่านรายงาน ↗</span></div>
+        <div style="flex:1;min-width:0">
+          <div class="adv-q">ไทยแข่งฮาร์ดแวร์กับจีนไม่ได้ — มูลค่าอยู่ที่<b>ชั้นการประยุกต์</b></div>
+          <div class="adv-n">รศ.ยืน ภู่วรวรรณ · ศ.ดร.จำรัส ลิ้มตระกูล · ศ.ดร.วรภัทร โตธนะเกษม · ดร.ทวินโชค ตันธุวนิตย์</div>
+          <div class="adv-n">ข้อค้นพบจากการหารือ มิ.ย. ๒๕๖๙ · รายงานต่อสภามหาวิทยาลัย</div>
+        </div>
+      </a>
     </div>
 
     <div style="flex:.72;display:flex;flex-direction:column;justify-content:space-between;border-left:1px solid var(--rule);padding-left:34px">
